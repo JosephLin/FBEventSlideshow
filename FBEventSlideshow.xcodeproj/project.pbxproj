@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C1F75081648C9BF0050CCE9 /* ServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F75071648C9BF0050CCE9 /* ServiceManager.m */; };
+		7C1F75281648CB210050CCE9 /* libfacebook_ios_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1F75141648CAB90050CCE9 /* libfacebook_ios_sdk.a */; };
+		7C1F752A1648CB280050CCE9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1F75291648CB280050CCE9 /* Social.framework */; };
+		7C1F754B1648D2380050CCE9 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1F754A1648D2380050CCE9 /* Accounts.framework */; };
+		7C1F754D1648D2730050CCE9 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1F754C1648D2730050CCE9 /* AdSupport.framework */; };
+		7C1F75511648D2E10050CCE9 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1F75501648D2E10050CCE9 /* libsqlite3.0.dylib */; };
 		7C49CAD116477E3D00035C30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C49CAD016477E3D00035C30 /* UIKit.framework */; };
 		7C49CAD316477E3D00035C30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C49CAD216477E3D00035C30 /* Foundation.framework */; };
 		7C49CAD516477E3D00035C30 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C49CAD416477E3D00035C30 /* CoreGraphics.framework */; };
@@ -22,7 +28,32 @@
 		7C49CAF316477E3E00035C30 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C49CAF216477E3E00035C30 /* FlipsideViewController.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7C1F75131648CAB90050CCE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7C1F750B1648CAB80050CCE9 /* facebook-ios-sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = "facebook-ios-sdk";
+		};
+		7C1F75151648CAB90050CCE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7C1F750B1648CAB80050CCE9 /* facebook-ios-sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B9CBC519152537270036AA71;
+			remoteInfo = FacebookSDKTests;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		7C1F75061648C9BF0050CCE9 /* ServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceManager.h; sourceTree = "<group>"; };
+		7C1F75071648C9BF0050CCE9 /* ServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceManager.m; sourceTree = "<group>"; };
+		7C1F750B1648CAB80050CCE9 /* facebook-ios-sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "facebook-ios-sdk.xcodeproj"; path = "facebook-ios-sdk/src/facebook-ios-sdk.xcodeproj"; sourceTree = "<group>"; };
+		7C1F75291648CB280050CCE9 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		7C1F754A1648D2380050CCE9 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		7C1F754C1648D2730050CCE9 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		7C1F754E1648D28A0050CCE9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7C1F75501648D2E10050CCE9 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		7C49CACC16477E3D00035C30 /* FBEventSlideshow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBEventSlideshow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C49CAD016477E3D00035C30 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7C49CAD216477E3D00035C30 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -49,6 +80,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C1F75511648D2E10050CCE9 /* libsqlite3.0.dylib in Frameworks */,
+				7C1F754D1648D2730050CCE9 /* AdSupport.framework in Frameworks */,
+				7C1F754B1648D2380050CCE9 /* Accounts.framework in Frameworks */,
+				7C1F752A1648CB280050CCE9 /* Social.framework in Frameworks */,
+				7C1F75281648CB210050CCE9 /* libfacebook_ios_sdk.a in Frameworks */,
 				7C49CAD116477E3D00035C30 /* UIKit.framework in Frameworks */,
 				7C49CAD316477E3D00035C30 /* Foundation.framework in Frameworks */,
 				7C49CAD516477E3D00035C30 /* CoreGraphics.framework in Frameworks */,
@@ -58,10 +94,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C1F750A1648CA9F0050CCE9 /* Externals */ = {
+			isa = PBXGroup;
+			children = (
+				7C1F750B1648CAB80050CCE9 /* facebook-ios-sdk.xcodeproj */,
+			);
+			name = Externals;
+			sourceTree = "<group>";
+		};
+		7C1F750C1648CAB80050CCE9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7C1F75141648CAB90050CCE9 /* libfacebook_ios_sdk.a */,
+				7C1F75161648CAB90050CCE9 /* FacebookSDKTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		7C49CAC116477E3D00035C30 = {
 			isa = PBXGroup;
 			children = (
 				7C49CAD616477E3D00035C30 /* FBEventSlideshow */,
+				7C1F750A1648CA9F0050CCE9 /* Externals */,
 				7C49CACF16477E3D00035C30 /* Frameworks */,
 				7C49CACD16477E3D00035C30 /* Products */,
 			);
@@ -78,6 +132,11 @@
 		7C49CACF16477E3D00035C30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7C1F75501648D2E10050CCE9 /* libsqlite3.0.dylib */,
+				7C1F754E1648D28A0050CCE9 /* CoreData.framework */,
+				7C1F754C1648D2730050CCE9 /* AdSupport.framework */,
+				7C1F754A1648D2380050CCE9 /* Accounts.framework */,
+				7C1F75291648CB280050CCE9 /* Social.framework */,
 				7C49CAD016477E3D00035C30 /* UIKit.framework */,
 				7C49CAD216477E3D00035C30 /* Foundation.framework */,
 				7C49CAD416477E3D00035C30 /* CoreGraphics.framework */,
@@ -96,6 +155,8 @@
 				7C49CAEF16477E3E00035C30 /* MainViewController.m */,
 				7C49CAF116477E3E00035C30 /* FlipsideViewController.h */,
 				7C49CAF216477E3E00035C30 /* FlipsideViewController.m */,
+				7C1F75061648C9BF0050CCE9 /* ServiceManager.h */,
+				7C1F75071648C9BF0050CCE9 /* ServiceManager.m */,
 				7C49CAD716477E3D00035C30 /* Supporting Files */,
 			);
 			path = FBEventSlideshow;
@@ -154,12 +215,35 @@
 			mainGroup = 7C49CAC116477E3D00035C30;
 			productRefGroup = 7C49CACD16477E3D00035C30 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7C1F750C1648CAB80050CCE9 /* Products */;
+					ProjectRef = 7C1F750B1648CAB80050CCE9 /* facebook-ios-sdk.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				7C49CACB16477E3D00035C30 /* FBEventSlideshow */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7C1F75141648CAB90050CCE9 /* libfacebook_ios_sdk.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libfacebook_ios_sdk.a;
+			remoteRef = 7C1F75131648CAB90050CCE9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7C1F75161648CAB90050CCE9 /* FacebookSDKTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = FacebookSDKTests.octest;
+			remoteRef = 7C1F75151648CAB90050CCE9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7C49CACA16477E3D00035C30 /* Resources */ = {
@@ -186,6 +270,7 @@
 				7C49CAE116477E3D00035C30 /* AppDelegate.m in Sources */,
 				7C49CAF016477E3E00035C30 /* MainViewController.m in Sources */,
 				7C49CAF316477E3E00035C30 /* FlipsideViewController.m in Sources */,
+				7C1F75081648C9BF0050CCE9 /* ServiceManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +361,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FBEventSlideshow/FBEventSlideshow-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/facebook-ios-sdk/src\"";
 				INFOPLIST_FILE = "FBEventSlideshow/FBEventSlideshow-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -287,6 +373,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FBEventSlideshow/FBEventSlideshow-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/facebook-ios-sdk/src\"";
 				INFOPLIST_FILE = "FBEventSlideshow/FBEventSlideshow-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

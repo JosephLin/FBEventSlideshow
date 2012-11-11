@@ -31,14 +31,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Actions
 
@@ -61,12 +55,15 @@
 
 - (IBAction)done:(id)sender
 {
-    [self.delegate flipsideViewControllerDidFinish:self];
+    if (self.presentingViewController)
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (IBAction)loginLogoutButtonTapped:(id)sender
 {
-    [[ServiceManager sharedManager] facebookLoginWithCompletion:^(id response, BOOL success, NSError *error) {
+    [[ServiceManager sharedManager] facebookLoginWithUI:YES completion:^(id response, BOOL success, NSError *error) {
         if (success)
         {
         }

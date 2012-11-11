@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6DAB6B36164FE2F600543880 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6DAB6B34164FE2F600543880 /* FBUserSettingsViewResources.bundle */; };
+		6DAB6B37164FE2F600543880 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6DAB6B35164FE2F600543880 /* FacebookSDKResources.bundle */; };
+		6DDCF71F164FDD0000A2C7AE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DDCF71E164FDD0000A2C7AE /* LoginViewController.m */; };
 		7C1F75081648C9BF0050CCE9 /* ServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F75071648C9BF0050CCE9 /* ServiceManager.m */; };
 		7C1F75281648CB210050CCE9 /* libfacebook_ios_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1F75141648CAB90050CCE9 /* libfacebook_ios_sdk.a */; };
 		7C1F752A1648CB280050CCE9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1F75291648CB280050CCE9 /* Social.framework */; };
@@ -69,6 +72,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6DAB6B34164FE2F600543880 /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; name = FBUserSettingsViewResources.bundle; path = "../facebook-ios-sdk/src/FBUserSettingsViewResources.bundle"; sourceTree = "<group>"; };
+		6DAB6B35164FE2F600543880 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; name = FacebookSDKResources.bundle; path = "../facebook-ios-sdk/src/FacebookSDKResources.bundle"; sourceTree = "<group>"; };
+		6DDCF71D164FDD0000A2C7AE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		6DDCF71E164FDD0000A2C7AE /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		7C1F75061648C9BF0050CCE9 /* ServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceManager.h; sourceTree = "<group>"; };
 		7C1F75071648C9BF0050CCE9 /* ServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceManager.m; sourceTree = "<group>"; };
 		7C1F750B1648CAB80050CCE9 /* facebook-ios-sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "facebook-ios-sdk.xcodeproj"; path = "facebook-ios-sdk/src/facebook-ios-sdk.xcodeproj"; sourceTree = "<group>"; };
@@ -186,14 +193,16 @@
 		7C49CAD616477E3D00035C30 /* FBEventSlideshow */ = {
 			isa = PBXGroup;
 			children = (
-				7C49CADF16477E3D00035C30 /* AppDelegate.h */,
-				7C49CAE016477E3D00035C30 /* AppDelegate.m */,
 				7C49CAE816477E3E00035C30 /* MainStoryboard_iPhone.storyboard */,
 				7C49CAEB16477E3E00035C30 /* MainStoryboard_iPad.storyboard */,
+				7C49CADF16477E3D00035C30 /* AppDelegate.h */,
+				7C49CAE016477E3D00035C30 /* AppDelegate.m */,
 				7C49CAEE16477E3E00035C30 /* MainViewController.h */,
 				7C49CAEF16477E3E00035C30 /* MainViewController.m */,
 				7C49CAF116477E3E00035C30 /* FlipsideViewController.h */,
 				7C49CAF216477E3E00035C30 /* FlipsideViewController.m */,
+				6DDCF71D164FDD0000A2C7AE /* LoginViewController.h */,
+				6DDCF71E164FDD0000A2C7AE /* LoginViewController.m */,
 				7C1F75061648C9BF0050CCE9 /* ServiceManager.h */,
 				7C1F75071648C9BF0050CCE9 /* ServiceManager.m */,
 				7C49CAD716477E3D00035C30 /* Supporting Files */,
@@ -204,6 +213,8 @@
 		7C49CAD716477E3D00035C30 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6DAB6B34164FE2F600543880 /* FBUserSettingsViewResources.bundle */,
+				6DAB6B35164FE2F600543880 /* FacebookSDKResources.bundle */,
 				7C49CAD816477E3D00035C30 /* FBEventSlideshow-Info.plist */,
 				7C49CAD916477E3D00035C30 /* InfoPlist.strings */,
 				7C49CADC16477E3D00035C30 /* main.m */,
@@ -320,6 +331,8 @@
 				7C49CAE716477E3D00035C30 /* Default-568h@2x.png in Resources */,
 				7C49CAEA16477E3E00035C30 /* MainStoryboard_iPhone.storyboard in Resources */,
 				7C49CAED16477E3E00035C30 /* MainStoryboard_iPad.storyboard in Resources */,
+				6DAB6B36164FE2F600543880 /* FBUserSettingsViewResources.bundle in Resources */,
+				6DAB6B37164FE2F600543880 /* FacebookSDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +348,7 @@
 				7C49CAF016477E3E00035C30 /* MainViewController.m in Sources */,
 				7C49CAF316477E3E00035C30 /* FlipsideViewController.m in Sources */,
 				7C1F75081648C9BF0050CCE9 /* ServiceManager.m in Sources */,
+				6DDCF71F164FDD0000A2C7AE /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

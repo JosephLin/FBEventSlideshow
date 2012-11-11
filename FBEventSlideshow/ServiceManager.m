@@ -9,27 +9,30 @@
 #import "ServiceManager.h"
 #import "FacebookSDK.h"
 
+//478629618821334
+
 
 @implementation ServiceManager
 
 
-- (void)facebookLoginWithCompletion:(ServiceManagerHandler)completion
+- (BOOL)facebookLoginWithUI:(BOOL)allowUI completion:(ServiceManagerHandler)completion
 {
-    [FBSession openActiveSessionWithReadPermissions:@[@"user_photos"]
-                                       allowLoginUI:YES
-                                  completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
-                                      
-                                      if ( session.isOpen )
-                                      {
-                                          NSLog(@"Facebook login successed!");
-                                          completion(nil, YES, nil);
-                                      }
-                                      
-                                      if (error)
-                                      {
-                                          completion(nil, NO, error);
-                                      }
-                                  }];
+    return [FBSession openActiveSessionWithReadPermissions:@[@"user_photos"]
+                                              allowLoginUI:allowUI
+                                         completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+                                             
+                                             if ( session.isOpen )
+                                             {
+                                                 NSLog(@"Facebook login successed!");
+                                                 completion(nil, YES, nil);
+                                             }
+                                             
+                                             if (error)
+                                             {
+                                                 NSLog(@"Facebook not logged in. Error: %@", error);
+                                                 completion(nil, NO, error);
+                                             }
+                                         }];
 }
 
 

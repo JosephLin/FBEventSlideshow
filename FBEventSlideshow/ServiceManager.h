@@ -16,7 +16,7 @@ typedef void (^ServiceManagerHandler)(id response, BOOL success, NSError *error)
 
 @property (nonatomic, strong) NSString *eventID;
 
-- (void)facebookLoginWithCompletion:(ServiceManagerHandler)completion;
+- (BOOL)facebookLoginWithUI:(BOOL)allowUI completion:(ServiceManagerHandler)completion;
 - (void)loadEventWithID:(NSString *)eventID completion:(ServiceManagerHandler)completion;
 - (void)loadEventPhotosWithCompletion:(ServiceManagerHandler)completion;
 + (ServiceManager *)sharedManager;

@@ -6,11 +6,9 @@
 //  Copyright (c) 2012 Joseph Lin. All rights reserved.
 //
 
-#import "FlipsideViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIPopoverControllerDelegate>
 
-@property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@interface MainViewController : UIViewController
 
 @end

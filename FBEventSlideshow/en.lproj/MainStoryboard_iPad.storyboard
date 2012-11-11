@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12C60" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="H8h-HC-0Kh">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="kzi-Sk-Oh6">
+            <objects>
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="H8h-HC-0Kh" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YR2-XN-JCe">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="46T-cY-g8H"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Muw-PM-Xip" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1608" y="-76"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="4">
             <objects>
@@ -12,8 +28,11 @@
                         <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="w1m-k7-OXN"/>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nz5-uj-a92">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="w1m-k7-OXN">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="Nz5-uj-a92">
+                                <rect key="frame" x="730" y="19" width="18" height="19"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -30,22 +49,68 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Nz5-uj-a92" firstAttribute="top" secondItem="8" secondAttribute="top" constant="20" symbolic="YES" type="default" id="9xL-Rf-CLG"/>
-                            <constraint firstItem="w1m-k7-OXN" firstAttribute="bottom" secondItem="8" secondAttribute="bottom" type="default" id="GGK-OX-XFn"/>
-                            <constraint firstItem="w1m-k7-OXN" firstAttribute="leading" secondItem="8" secondAttribute="leading" type="default" id="OXi-Cr-qxZ"/>
-                            <constraint firstItem="w1m-k7-OXN" firstAttribute="trailing" secondItem="8" secondAttribute="trailing" type="default" id="Rwc-pf-4TF"/>
-                            <constraint firstAttribute="trailing" secondItem="Nz5-uj-a92" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="kcx-V7-A3b"/>
-                            <constraint firstItem="w1m-k7-OXN" firstAttribute="top" secondItem="8" secondAttribute="top" type="default" id="voX-Pf-iju"/>
-                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="gjv-Uc-wKm"/>
                     <connections>
                         <outlet property="imageView" destination="w1m-k7-OXN" id="JXZ-GR-DNE"/>
+                        <segue destination="WDy-LY-aF1" kind="modal" identifier="LoginSegue" modalTransitionStyle="crossDissolve" id="5AO-d6-g6u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-286" y="15"/>
+            <point key="canvasLocation" x="-636" y="-76"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="D8T-2X-aGi">
+            <objects>
+                <viewController id="WDy-LY-aF1" customClass="LoginViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="awu-jQ-MoM">
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="loginBackgroundIPadPortrait.jpg" id="BeX-YP-p9K">
+                                <rect key="frame" x="0.0" y="1" width="768" height="1004"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pqG-sh-6Wo">
+                                <rect key="frame" x="309" y="481" width="151" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="50" minY="0.0" maxX="4" maxY="0.0"/>
+                                <state key="normal" title="Login" backgroundImage="login-button-small.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="login-button-small-pressed@2x.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="WDy-LY-aF1" eventType="touchUpInside" id="nLh-ub-2A7"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Facebook Event Slideshow" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CPe-Xq-ecb">
+                                <rect key="frame" x="134" y="300" width="500" height="40"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B2M-hv-DEp">
+                                <rect key="frame" x="234" y="350" width="300" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <string key="text">Welcome! Please login to facebook
+so we can access the event data.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cZ3-Fk-irA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-636" y="-1229"/>
         </scene>
         <!--Flipside View Controller-->
         <scene sceneID="QMc-eJ-3wb">
@@ -59,11 +124,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kO4-Kv-LMC">
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="39" id="8JS-NP-wv8"/>
-                                        <constraint firstAttribute="width" constant="100" id="APO-RY-NJM"/>
-                                    </constraints>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kO4-Kv-LMC">
+                                    <rect key="frame" x="110" y="20" width="100" height="40"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                     <state key="normal" title="Login">
                                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -78,10 +140,6 @@
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="kO4-Kv-LMC" firstAttribute="top" secondItem="hee-p0-P2n" secondAttribute="top" constant="20" symbolic="YES" type="default" id="ixb-Al-fAQ"/>
-                                <constraint firstItem="kO4-Kv-LMC" firstAttribute="centerX" secondItem="hee-p0-P2n" secondAttribute="centerX" type="default" id="y2X-wq-nlj"/>
-                            </constraints>
                         </view>
                         <sections>
                             <tableViewSection id="eEG-3D-cOY">
@@ -93,15 +151,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Event ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6P-44-rOA">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Event ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o6P-44-rOA">
+                                                    <rect key="frame" x="10" y="11" width="69" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ftX-rc-o2A">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="180" id="euK-dV-8Or"/>
-                                                    </constraints>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="ftX-rc-o2A">
+                                                    <rect key="frame" x="131" y="7" width="180" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
@@ -111,12 +168,6 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <constraints>
-                                            <constraint firstItem="ftX-rc-o2A" firstAttribute="leading" secondItem="IOh-lq-FUn" secondAttribute="leading" constant="131" id="Nje-ND-FXT"/>
-                                            <constraint firstItem="o6P-44-rOA" firstAttribute="leading" secondItem="IOh-lq-FUn" secondAttribute="leading" constant="10" id="P4P-w7-EJQ"/>
-                                            <constraint firstItem="o6P-44-rOA" firstAttribute="top" secondItem="IOh-lq-FUn" secondAttribute="top" constant="11" id="Zbh-rU-nup"/>
-                                            <constraint firstItem="ftX-rc-o2A" firstAttribute="centerY" secondItem="IOh-lq-FUn" secondAttribute="centerY" type="default" id="eg9-Ss-czh"/>
-                                        </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="rkD-XV-mJC" detailTextLabel="xUf-KL-hTq" style="IBUITableViewCellStyleValue1" id="MJM-sp-LLJ">
                                         <rect key="frame" x="0.0" y="124" width="320" height="44"/>
@@ -125,12 +176,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkD-XV-mJC">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rkD-XV-mJC">
+                                                    <rect key="frame" x="10" y="11" width="47" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUf-KL-hTq">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xUf-KL-hTq">
+                                                    <rect key="frame" x="266" y="11" width="44" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -146,12 +199,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GY8-OZ-RtA">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GY8-OZ-RtA">
+                                                    <rect key="frame" x="10" y="11" width="94" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIg-8p-BtZ">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KIg-8p-BtZ">
+                                                    <rect key="frame" x="266" y="11" width="44" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -178,30 +233,32 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Vw-to-6Ac" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="755" y="6"/>
+            <point key="canvasLocation" x="377" y="10"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="login-button-small-pressed@2x.png" width="302" height="86"/>
+        <image name="login-button-small.png" width="151" height="43"/>
+        <image name="loginBackgroundIPadPortrait.jpg" width="768" height="1004"/>
+    </resources>
     <classes>
         <class className="FlipsideViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FlipsideViewController.h"/>
             <relationships>
-                <relationship kind="action" name="done:"/>
-                <relationship kind="action" name="loginLogoutButtonTapped:"/>
-                <relationship kind="action" name="textFieldDidEndEditing:" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="idTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="loginLogoutButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+        </class>
         <class className="MainViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
             </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

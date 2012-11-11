@@ -7,14 +7,18 @@
 //
 
 #import "MainViewController.h"
+#import "FlipsideViewController.h"
 #import "ServiceManager.h"
 #import "UIImageView+WebCache.h"
 
-@interface MainViewController ()
+
+@interface MainViewController () <UIPopoverControllerDelegate>
+@property (nonatomic, strong) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) NSTimer *slideshowTimer;
 @property (nonatomic, strong) NSArray *photos;
 @property (nonatomic) NSUInteger currentIndex;
 @end
+
 
 
 @implementation MainViewController
@@ -22,7 +26,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    BOOL isLoggedIn = [[ServiceManager sharedManager] facebookLoginWithUI:NO completion:NULL];
+    
+    if (!isLoggedIn)
+    {
+        [self performSegueWithIdentifier:@"LoginSegue" sender:self];
+    }
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -74,20 +85,8 @@
 
 #pragma mark - Flipside View Controller
 
-- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    } else {
-        [self.flipsidePopoverController dismissPopoverAnimated:YES];
-        self.flipsidePopoverController = nil;
-    }
-}
-
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
-    self.flipsidePopoverController = nil;
-    
     [self loadEventPhotos];
     
     self.slideshowTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(displayNextPhoto) userInfo:nil repeats:YES];
@@ -95,25 +94,11 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showAlternate"]) {
-        [[segue destinationViewController] setDelegate:self];
-        
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-            UIPopoverController *popoverController = [(UIStoryboardPopoverSegue *)segue popoverController];
-            self.flipsidePopoverController = popoverController;
-            popoverController.delegate = self;
-        }
+    if ([segue isKindOfClass:[UIStoryboardPopoverSegue class]])
+    {
+        ((UIStoryboardPopoverSegue *)segue).popoverController.delegate = self;
     }
 }
 
-- (IBAction)togglePopover:(id)sender
-{
-    if (self.flipsidePopoverController) {
-        [self.flipsidePopoverController dismissPopoverAnimated:YES];
-        self.flipsidePopoverController = nil;
-    } else {
-        [self performSegueWithIdentifier:@"showAlternate" sender:sender];
-    }
-}
 
 @end

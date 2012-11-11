@@ -12,7 +12,7 @@
 
 
 @interface FlipsideViewController ()
-@property (strong, nonatomic) IBOutlet UIButton *loginLogoutButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *loginLogoutButton;
 @property (strong, nonatomic) IBOutlet UITextField *idTextField;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;

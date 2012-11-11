@@ -18,6 +18,7 @@ typedef void (^ServiceManagerHandler)(id response, BOOL success, NSError *error)
 
 - (void)facebookLoginWithCompletion:(ServiceManagerHandler)completion;
 - (void)loadEventWithID:(NSString *)eventID completion:(ServiceManagerHandler)completion;
+- (void)loadEventPhotosWithCompletion:(ServiceManagerHandler)completion;
 + (ServiceManager *)sharedManager;
 
 @end

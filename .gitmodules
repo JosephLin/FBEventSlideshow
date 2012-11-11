@@ -1,3 +1,6 @@
 [submodule "facebook-ios-sdk"]
 	path = facebook-ios-sdk
 	url = git://github.com/facebook/facebook-ios-sdk.git
+[submodule "SDWebImage"]
+	path = SDWebImage
+	url = git://github.com/rs/SDWebImage.git

@@ -15,7 +15,7 @@
 
 - (void)facebookLoginWithCompletion:(ServiceManagerHandler)completion
 {
-    [FBSession openActiveSessionWithReadPermissions:nil
+    [FBSession openActiveSessionWithReadPermissions:@[@"user_photos"]
                                        allowLoginUI:YES
                                   completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
                                       
@@ -38,6 +38,25 @@
     self.eventID = eventID;
     
     [FBRequestConnection startWithGraphPath:eventID completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        
+        if (!error)
+        {
+            NSLog(@"Result: %@", result);
+            completion(result, YES, nil);
+        }
+        else
+        {
+            NSLog(@"FBRequest failed with error: %@", error);
+            completion(nil, NO, error);
+        }
+    }];
+}
+
+- (void)loadEventPhotosWithCompletion:(ServiceManagerHandler)completion
+{
+    NSString *path = [NSString stringWithFormat:@"%@/photos", self.eventID];
+    
+    [FBRequestConnection startWithGraphPath:path completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         
         if (!error)
         {

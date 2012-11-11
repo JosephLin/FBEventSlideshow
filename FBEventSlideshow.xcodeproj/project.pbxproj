@@ -152,7 +152,6 @@
 		7C49CAC116477E3D00035C30 = {
 			isa = PBXGroup;
 			children = (
-				7C379C7E164F9C4000FAABB0 /* ImageIO.framework */,
 				7C49CAD616477E3D00035C30 /* FBEventSlideshow */,
 				7C1F750A1648CA9F0050CCE9 /* Externals */,
 				7C49CACF16477E3D00035C30 /* Frameworks */,
@@ -171,6 +170,7 @@
 		7C49CACF16477E3D00035C30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7C379C7E164F9C4000FAABB0 /* ImageIO.framework */,
 				7C1F75501648D2E10050CCE9 /* libsqlite3.0.dylib */,
 				7C1F754E1648D28A0050CCE9 /* CoreData.framework */,
 				7C1F754C1648D2730050CCE9 /* AdSupport.framework */,

@@ -68,10 +68,7 @@
 
 - (IBAction)doneButtonTapped:(id)sender
 {
-    if (self.presentingViewController)
-    {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)logoutButtonTapped:(id)sender

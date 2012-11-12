@@ -42,7 +42,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="An0-PO-7kE" kind="popover" identifier="showAlternate" popoverAnchorView="Nz5-uj-a92" id="85P-HM-81D">
+                                    <segue destination="An0-PO-7kE" kind="popover" identifier="SettingsSegue" popoverAnchorView="Nz5-uj-a92" id="85P-HM-81D">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>

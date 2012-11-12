@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Vbc-Ru-BBJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Vbc-Ru-BBJ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -12,7 +12,12 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="tfN-bM-8FM">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="10">
+                                <rect key="frame" x="282" y="509" width="18" height="19"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
@@ -22,17 +27,17 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="U5L-FM-KhM" kind="modal" id="biO-Nb-zUa"/>
+                                    <segue destination="U5L-FM-KhM" kind="push" identifier="SettingsSegue" id="biO-Nb-zUa"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="10" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="apl-1S-UOC"/>
-                            <constraint firstAttribute="bottom" secondItem="10" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="bcr-if-aDO"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tqI-Zj-VGe"/>
+                    <connections>
+                        <outlet property="imageView" destination="tfN-bM-8FM" id="ZH5-5r-1Sz"/>
+                        <segue destination="bsz-PR-h0z" kind="modal" identifier="LoginSegue" modalTransitionStyle="crossDissolve" id="I14-xR-c6x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
@@ -42,6 +47,7 @@
         <scene sceneID="aVP-7q-TXM">
             <objects>
                 <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="Vbc-Ru-BBJ" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eLu-Dm-lVi">
                         <autoresizingMask key="autoresizingMask"/>
@@ -66,17 +72,18 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GAX-Mv-cwn">
+                                <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" id="GAX-Mv-cwn">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <items>
                                         <navigationItem title="Settings" id="bje-pS-BEY">
                                             <barButtonItem key="leftBarButtonItem" systemItem="done" id="l9S-SG-Sxu">
                                                 <connections>
-                                                    <action selector="done:" destination="U5L-FM-KhM" id="MFY-uM-35t"/>
+                                                    <action selector="doneButtonTapped:" destination="U5L-FM-KhM" id="eJX-1d-IkK"/>
                                                 </connections>
                                             </barButtonItem>
-                                            <barButtonItem key="rightBarButtonItem" title="Login" id="td6-yC-buO">
+                                            <barButtonItem key="rightBarButtonItem" title="Logout" id="td6-yC-buO">
                                                 <connections>
-                                                    <action selector="loginLogoutButtonTapped:" destination="U5L-FM-KhM" id="GXI-Pl-rod"/>
+                                                    <action selector="logoutButtonTapped:" destination="U5L-FM-KhM" id="jcC-f8-Nlo"/>
                                                 </connections>
                                             </barButtonItem>
                                         </navigationItem>
@@ -84,11 +91,6 @@
                                 </navigationBar>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="GAX-Mv-cwn" firstAttribute="trailing" secondItem="9ib-fc-FsV" secondAttribute="trailing" type="default" id="R1U-GC-2gQ"/>
-                                <constraint firstItem="GAX-Mv-cwn" firstAttribute="leading" secondItem="9ib-fc-FsV" secondAttribute="leading" type="default" id="gZQ-vM-QTS"/>
-                                <constraint firstItem="GAX-Mv-cwn" firstAttribute="top" secondItem="9ib-fc-FsV" secondAttribute="top" type="default" id="u6z-fz-45T"/>
-                            </constraints>
                         </view>
                         <sections>
                             <tableViewSection id="SyD-T9-OgQ">
@@ -100,15 +102,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Event ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flz-Id-GNZ">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Event ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="flz-Id-GNZ">
+                                                    <rect key="frame" x="10" y="11" width="69" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HBb-VA-1fM">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="180" id="p28-b0-KUG"/>
-                                                    </constraints>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="HBb-VA-1fM">
+                                                    <rect key="frame" x="131" y="7" width="180" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
@@ -118,12 +119,6 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <constraints>
-                                            <constraint firstItem="flz-Id-GNZ" firstAttribute="top" secondItem="ERy-bi-IyV" secondAttribute="top" constant="11" id="C4D-NP-vTE"/>
-                                            <constraint firstItem="HBb-VA-1fM" firstAttribute="leading" secondItem="ERy-bi-IyV" secondAttribute="leading" constant="131" id="LDf-mM-Syy"/>
-                                            <constraint firstItem="flz-Id-GNZ" firstAttribute="leading" secondItem="ERy-bi-IyV" secondAttribute="leading" constant="10" id="e6q-CH-Rgt"/>
-                                            <constraint firstItem="HBb-VA-1fM" firstAttribute="centerY" secondItem="ERy-bi-IyV" secondAttribute="centerY" type="default" id="ezy-bz-w7O"/>
-                                        </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="VhI-IE-dZA" detailTextLabel="a4a-q0-x4Y" style="IBUITableViewCellStyleValue1" id="cPk-DG-FLW">
                                         <rect key="frame" x="0.0" y="88" width="320" height="44"/>
@@ -138,7 +133,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a4a-q0-x4Y">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" id="a4a-q0-x4Y">
                                                     <rect key="frame" x="266" y="11" width="44" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -161,7 +156,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="deC-Hx-D5s">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" id="deC-Hx-D5s">
                                                     <rect key="frame" x="266" y="11" width="44" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -183,6 +178,7 @@
                     <connections>
                         <outlet property="descriptionLabel" destination="deC-Hx-D5s" id="AXB-j2-aeG"/>
                         <outlet property="idTextField" destination="HBb-VA-1fM" id="caR-Re-dhq"/>
+                        <outlet property="logoutButton" destination="td6-yC-buO" id="hge-Ec-Odl"/>
                         <outlet property="nameLabel" destination="a4a-q0-x4Y" id="WcV-pO-zLF"/>
                     </connections>
                 </tableViewController>
@@ -190,16 +186,82 @@
             </objects>
             <point key="canvasLocation" x="829" y="-405"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="PyV-Me-yPk">
+            <objects>
+                <viewController id="bsz-PR-h0z" customClass="LoginViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vTn-ny-qa3">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="loginBackgroundIPhonePortrait.jpg" id="mQT-ZH-hYo">
+                                <rect key="frame" x="0.0" y="1" width="320" height="547"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FdQ-a6-a21">
+                                <rect key="frame" x="85" y="252" width="151" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="50" minY="0.0" maxX="4" maxY="0.0"/>
+                                <state key="normal" title="Login" backgroundImage="login-button-small.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="login-button-small-pressed@2x.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="bsz-PR-h0z" eventType="touchUpInside" id="79d-SK-Fwm"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Facebook Event Slideshow" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IKw-YO-VKd">
+                                <rect key="frame" x="20" y="100" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xt4-2U-0hF">
+                                <rect key="frame" x="20" y="138" width="280" height="46"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <string key="text">Welcome! Please login to facebook
+so we can access the event data.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R7k-OX-z6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="269" y="-1109"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="login-button-small-pressed@2x.png" width="302" height="86"/>
+        <image name="login-button-small.png" width="151" height="43"/>
+        <image name="loginBackgroundIPhonePortrait.jpg" width="320" height="460"/>
+    </resources>
     <classes>
         <class className="FlipsideViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FlipsideViewController.h"/>
             <relationships>
-                <relationship kind="action" name="done:"/>
+                <relationship kind="action" name="doneButtonTapped:"/>
+                <relationship kind="action" name="logoutButtonTapped:"/>
+                <relationship kind="action" name="textFieldDidEndEditing:" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="idTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="loginLogoutButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="logoutButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="loginButtonTapped:"/>
             </relationships>
         </class>
         <class className="MainViewController" superclassName="UIViewController">
@@ -207,9 +269,6 @@
             <relationships>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
             </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

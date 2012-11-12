@@ -7,12 +7,15 @@
 //
 
 #import "ServiceManager.h"
-#import "FacebookSDK.h"
+
+NSString *const FBSessionDidLogoutNotification = @"FBSessionDidLogoutNotification";
 
 //478629618821334
 
 
 @implementation ServiceManager
+
+@synthesize eventID = _eventID;
 
 
 - (BOOL)facebookLoginWithUI:(BOOL)allowUI completion:(ServiceManagerHandler)completion
@@ -24,15 +27,24 @@
                                              if ( session.isOpen )
                                              {
                                                  NSLog(@"Facebook login successed!");
-                                                 completion(nil, YES, nil);
+                                                 if (completion)
+                                                     completion(nil, YES, nil);
                                              }
                                              
                                              if (error)
                                              {
                                                  NSLog(@"Facebook not logged in. Error: %@", error);
-                                                 completion(nil, NO, error);
+                                                 if (completion)
+                                                     completion(nil, NO, error);
                                              }
                                          }];
+}
+
+- (void)facebookLogout
+{
+    [FBSession.activeSession closeAndClearTokenInformation];
+    NSLog(@"Facebook logout successed!");
+    [[NSNotificationCenter defaultCenter] postNotificationName:FBSessionDidLogoutNotification object:nil];
 }
 
 
@@ -57,7 +69,14 @@
 
 - (void)loadEventPhotosWithCompletion:(ServiceManagerHandler)completion
 {
+    if (!self.eventID)
+    {
+        NSLog(@"Attempt to load event but there's no event ID!");
+        return;
+    }
+    
     NSString *path = [NSString stringWithFormat:@"%@/photos", self.eventID];
+    NSLog(@"Loading photos from: %@", path);
     
     [FBRequestConnection startWithGraphPath:path completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         
@@ -72,6 +91,25 @@
             completion(nil, NO, error);
         }
     }];
+}
+
+
+#pragma mark - Event ID
+
+- (void)setEventID:(NSString *)eventID
+{
+    _eventID = eventID;
+    [[NSUserDefaults standardUserDefaults] setObject:eventID forKey:@"EventID"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSString *)eventID
+{
+    if (!_eventID)
+    {
+        _eventID = [[NSUserDefaults standardUserDefaults] objectForKey:@"EventID"];
+    }
+    return _eventID;
 }
 
 

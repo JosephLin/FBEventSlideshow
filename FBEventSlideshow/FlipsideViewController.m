@@ -12,7 +12,7 @@
 
 
 @interface FlipsideViewController ()
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *loginLogoutButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
 @property (strong, nonatomic) IBOutlet UITextField *idTextField;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
@@ -31,6 +31,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.idTextField.text = [ServiceManager sharedManager].eventID;
+    if ([self.idTextField.text length])
+    {
+        [[ServiceManager sharedManager] loadEventWithID:self.idTextField.text completion:^(id response, BOOL success, NSError *error) {
+            if (success)
+            {
+                self.nameLabel.text = [response objectForKey:@"name"];
+                self.descriptionLabel.text = [response objectForKey:@"description"];
+            }
+        }];
+    }
 }
 
 
@@ -38,22 +49,24 @@
 
 - (IBAction)textFieldDidEndEditing:(UITextField *)textField
 {
-    [[ServiceManager sharedManager] loadEventWithID:textField.text completion:^(id response, BOOL success, NSError *error) {
-        if (success)
-        {
-            self.nameLabel.text = [response objectForKey:@"name"];
-            self.descriptionLabel.text = [response objectForKey:@"description"];
-        }
-        else
-        {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alertView show];
-        }
-    }];
-
+    if ([textField.text length])
+    {
+        [[ServiceManager sharedManager] loadEventWithID:self.idTextField.text completion:^(id response, BOOL success, NSError *error) {
+            if (success)
+            {
+                self.nameLabel.text = [response objectForKey:@"name"];
+                self.descriptionLabel.text = [response objectForKey:@"description"];
+            }
+            else
+            {
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alertView show];
+            }
+        }];
+    }
 }
 
-- (IBAction)done:(id)sender
+- (IBAction)doneButtonTapped:(id)sender
 {
     if (self.presentingViewController)
     {
@@ -61,64 +74,10 @@
     }
 }
 
-- (IBAction)loginLogoutButtonTapped:(id)sender
+- (IBAction)logoutButtonTapped:(id)sender
 {
-    [[ServiceManager sharedManager] facebookLoginWithUI:YES completion:^(id response, BOOL success, NSError *error) {
-        if (success)
-        {
-        }
-        else
-        {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alertView show];
-        }
-    }];
+    [[ServiceManager sharedManager] facebookLogout];
 }
 
-//#pragma mark - Table View
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//    return [self.menuStructureArray count];
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//	static NSString * cellIdentifier = @"BasicCell";
-//	
-//	UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//	
-//	if (cell == nil)
-//	{
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-//		cell.selectionStyle = UITableViewCellSelectionStyleGray;
-//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//    }
-//	
-//	NSDictionary* menuDictionary = self.menuStructureArray[indexPath.row];
-//    cell.textLabel.text = menuDictionary[@"title"];
-//    
-//    UIImage* iconImage = [UIImage imageNamed:menuDictionary[@"property"]];
-//    cell.imageView.image = iconImage;
-//    
-//    return cell;
-//}
-//
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-//	
-//	NSDictionary* menuDictionary = self.menuStructureArray[indexPath.row];
-//	NSString* viewControllerName = menuDictionary[@"viewController"];
-//	Class aClass = [[NSBundle mainBundle] classNamed:viewControllerName];
-//    
-//	UIViewController* childVC = [[aClass alloc] init];
-//    childVC.title = menuDictionary[@"title"];
-//	if ( [childVC isKindOfClass:[ArrayBasedTableViewController class]] )
-//	{
-//		((ArrayBasedTableViewController*)childVC).property = self.menuStructureArray[indexPath.row][@"property"];
-//	}
-//    [self.navigationController pushViewController:childVC animated:YES];
-//}
 
 @end

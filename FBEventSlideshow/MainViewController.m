@@ -14,6 +14,7 @@
 
 @interface MainViewController () <UIPopoverControllerDelegate>
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
+@property (nonatomic, strong) UIPopoverController *settingsPopoverController;
 @property (nonatomic, strong) NSTimer *slideshowTimer;
 @property (nonatomic, strong) NSArray *photos;
 @property (nonatomic) NSUInteger currentIndex;
@@ -28,12 +29,17 @@
     [super viewDidLoad];
     
     BOOL isLoggedIn = [[ServiceManager sharedManager] facebookLoginWithUI:NO completion:NULL];
-    
     if (!isLoggedIn)
     {
-        [self performSegueWithIdentifier:@"LoginSegue" sender:self];
+        [self showLogin];
     }
-
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:FBSessionDidLogoutNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        
+        [self.settingsPopoverController dismissPopoverAnimated:NO];
+        [self showLogin];
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -54,6 +60,14 @@
     
     [super viewWillDisappear:animated];
 }
+
+- (void)showLogin
+{
+    [self performSegueWithIdentifier:@"LoginSegue" sender:self];
+}
+
+
+#pragma mark - Photos
 
 - (void)loadEventPhotos
 {
@@ -77,8 +91,12 @@
     {
         NSString *URLString = self.photos[self.currentIndex][@"source"];
         NSURL *URL = [NSURL URLWithString:URLString];
-        [self.imageView setImageWithURL:URL];
+        [self.imageView setImageWithURL:URL placeholderImage:self.imageView.image];
         self.currentIndex++;
+    }
+    else
+    {
+        self.currentIndex = 0;
     }
 }
 
@@ -97,6 +115,7 @@
     if ([segue isKindOfClass:[UIStoryboardPopoverSegue class]])
     {
         ((UIStoryboardPopoverSegue *)segue).popoverController.delegate = self;
+        self.settingsPopoverController = ((UIStoryboardPopoverSegue *)segue).popoverController;
     }
 }
 

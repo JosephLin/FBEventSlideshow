@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6DAB6B36164FE2F600543880 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6DAB6B34164FE2F600543880 /* FBUserSettingsViewResources.bundle */; };
-		6DAB6B37164FE2F600543880 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6DAB6B35164FE2F600543880 /* FacebookSDKResources.bundle */; };
+		6D1E71A51650842400663E78 /* login-button-small-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D1E719D1650842400663E78 /* login-button-small-pressed.png */; };
+		6D1E71A61650842400663E78 /* login-button-small-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D1E719E1650842400663E78 /* login-button-small-pressed@2x.png */; };
+		6D1E71A71650842400663E78 /* login-button-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D1E719F1650842400663E78 /* login-button-small.png */; };
+		6D1E71A81650842400663E78 /* login-button-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D1E71A01650842400663E78 /* login-button-small@2x.png */; };
+		6D1E71A91650842400663E78 /* loginBackgroundIPadLandscape.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D1E71A11650842400663E78 /* loginBackgroundIPadLandscape.jpg */; };
+		6D1E71AA1650842400663E78 /* loginBackgroundIPadLandscape@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D1E71A21650842400663E78 /* loginBackgroundIPadLandscape@2x.jpg */; };
+		6D1E71AB1650842400663E78 /* loginBackgroundIPadPortrait.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D1E71A31650842400663E78 /* loginBackgroundIPadPortrait.jpg */; };
+		6D1E71AC1650842400663E78 /* loginBackgroundIPadPortrait@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D1E71A41650842400663E78 /* loginBackgroundIPadPortrait@2x.jpg */; };
 		6DDCF71F164FDD0000A2C7AE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DDCF71E164FDD0000A2C7AE /* LoginViewController.m */; };
 		7C1F75081648C9BF0050CCE9 /* ServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F75071648C9BF0050CCE9 /* ServiceManager.m */; };
 		7C1F75281648CB210050CCE9 /* libfacebook_ios_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1F75141648CAB90050CCE9 /* libfacebook_ios_sdk.a */; };
@@ -72,8 +78,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6DAB6B34164FE2F600543880 /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; name = FBUserSettingsViewResources.bundle; path = "../facebook-ios-sdk/src/FBUserSettingsViewResources.bundle"; sourceTree = "<group>"; };
-		6DAB6B35164FE2F600543880 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; name = FacebookSDKResources.bundle; path = "../facebook-ios-sdk/src/FacebookSDKResources.bundle"; sourceTree = "<group>"; };
+		6D1E719D1650842400663E78 /* login-button-small-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small-pressed.png"; sourceTree = "<group>"; };
+		6D1E719E1650842400663E78 /* login-button-small-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small-pressed@2x.png"; sourceTree = "<group>"; };
+		6D1E719F1650842400663E78 /* login-button-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small.png"; sourceTree = "<group>"; };
+		6D1E71A01650842400663E78 /* login-button-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small@2x.png"; sourceTree = "<group>"; };
+		6D1E71A11650842400663E78 /* loginBackgroundIPadLandscape.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginBackgroundIPadLandscape.jpg; sourceTree = "<group>"; };
+		6D1E71A21650842400663E78 /* loginBackgroundIPadLandscape@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "loginBackgroundIPadLandscape@2x.jpg"; sourceTree = "<group>"; };
+		6D1E71A31650842400663E78 /* loginBackgroundIPadPortrait.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginBackgroundIPadPortrait.jpg; sourceTree = "<group>"; };
+		6D1E71A41650842400663E78 /* loginBackgroundIPadPortrait@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "loginBackgroundIPadPortrait@2x.jpg"; sourceTree = "<group>"; };
 		6DDCF71D164FDD0000A2C7AE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		6DDCF71E164FDD0000A2C7AE /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		7C1F75061648C9BF0050CCE9 /* ServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceManager.h; sourceTree = "<group>"; };
@@ -128,6 +140,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D1E719C1650842400663E78 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6D1E719D1650842400663E78 /* login-button-small-pressed.png */,
+				6D1E719E1650842400663E78 /* login-button-small-pressed@2x.png */,
+				6D1E719F1650842400663E78 /* login-button-small.png */,
+				6D1E71A01650842400663E78 /* login-button-small@2x.png */,
+				6D1E71A11650842400663E78 /* loginBackgroundIPadLandscape.jpg */,
+				6D1E71A21650842400663E78 /* loginBackgroundIPadLandscape@2x.jpg */,
+				6D1E71A31650842400663E78 /* loginBackgroundIPadPortrait.jpg */,
+				6D1E71A41650842400663E78 /* loginBackgroundIPadPortrait@2x.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		7C1F750A1648CA9F0050CCE9 /* Externals */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +232,7 @@
 				6DDCF71E164FDD0000A2C7AE /* LoginViewController.m */,
 				7C1F75061648C9BF0050CCE9 /* ServiceManager.h */,
 				7C1F75071648C9BF0050CCE9 /* ServiceManager.m */,
+				6D1E719C1650842400663E78 /* Images */,
 				7C49CAD716477E3D00035C30 /* Supporting Files */,
 			);
 			path = FBEventSlideshow;
@@ -213,8 +241,6 @@
 		7C49CAD716477E3D00035C30 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6DAB6B34164FE2F600543880 /* FBUserSettingsViewResources.bundle */,
-				6DAB6B35164FE2F600543880 /* FacebookSDKResources.bundle */,
 				7C49CAD816477E3D00035C30 /* FBEventSlideshow-Info.plist */,
 				7C49CAD916477E3D00035C30 /* InfoPlist.strings */,
 				7C49CADC16477E3D00035C30 /* main.m */,
@@ -331,8 +357,14 @@
 				7C49CAE716477E3D00035C30 /* Default-568h@2x.png in Resources */,
 				7C49CAEA16477E3E00035C30 /* MainStoryboard_iPhone.storyboard in Resources */,
 				7C49CAED16477E3E00035C30 /* MainStoryboard_iPad.storyboard in Resources */,
-				6DAB6B36164FE2F600543880 /* FBUserSettingsViewResources.bundle in Resources */,
-				6DAB6B37164FE2F600543880 /* FacebookSDKResources.bundle in Resources */,
+				6D1E71A51650842400663E78 /* login-button-small-pressed.png in Resources */,
+				6D1E71A61650842400663E78 /* login-button-small-pressed@2x.png in Resources */,
+				6D1E71A71650842400663E78 /* login-button-small.png in Resources */,
+				6D1E71A81650842400663E78 /* login-button-small@2x.png in Resources */,
+				6D1E71A91650842400663E78 /* loginBackgroundIPadLandscape.jpg in Resources */,
+				6D1E71AA1650842400663E78 /* loginBackgroundIPadLandscape@2x.jpg in Resources */,
+				6D1E71AB1650842400663E78 /* loginBackgroundIPadPortrait.jpg in Resources */,
+				6D1E71AC1650842400663E78 /* loginBackgroundIPadPortrait@2x.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

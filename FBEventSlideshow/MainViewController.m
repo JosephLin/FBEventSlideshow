@@ -15,6 +15,9 @@
 @interface MainViewController () <UIPopoverControllerDelegate>
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) UIPopoverController *settingsPopoverController;
+@property (nonatomic, strong) UIScreen *extScreen;
+@property (nonatomic, strong) UIWindow *extWindow;
+@property (nonatomic, strong) UIImageView *extImageView;
 @property (nonatomic, strong) NSTimer *slideshowTimer;
 @property (nonatomic, strong) NSArray *photos;
 @property (nonatomic) NSUInteger currentIndex;
@@ -40,6 +43,22 @@
         [self.settingsPopoverController dismissPopoverAnimated:NO];
         [self showLogin];
     }];
+    
+    
+    
+    // No notifications are sent for screens that are present when the app is launched.
+    [self screenDidChange:nil];
+	
+	// Register for screen connect and disconnect notifications.
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(screenDidChange:)
+												 name:UIScreenDidConnectNotification
+											   object:nil];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(screenDidChange:)
+												 name:UIScreenDidDisconnectNotification
+											   object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -92,6 +111,7 @@
         NSString *URLString = self.photos[self.currentIndex][@"source"];
         NSURL *URL = [NSURL URLWithString:URLString];
         [self.imageView setImageWithURL:URL placeholderImage:self.imageView.image];
+        [self.extImageView setImageWithURL:URL placeholderImage:self.imageView.image];
         self.currentIndex++;
     }
     else
@@ -117,6 +137,68 @@
         ((UIStoryboardPopoverSegue *)segue).popoverController.delegate = self;
         self.settingsPopoverController = ((UIStoryboardPopoverSegue *)segue).popoverController;
     }
+}
+
+
+#pragma mark - External Display
+
+- (void)screenDidChange:(NSNotification *)notification
+{
+    // 1. Use the screens class method of the UIScreen class to determine if an external display is available.
+	NSArray *screens = [UIScreen screens];
+
+    // Log the current screens and display modes
+    NSUInteger screenCount = [screens count];
+    NSLog(@"Device has %d screen(s).", screenCount);
+    
+	NSUInteger count = 0;
+	for (UIScreen *screen in screens)
+    {
+		NSArray *displayModes = screen.availableModes;
+		NSLog(@"Screen %d", count);
+
+		for (UIScreenMode *mode in displayModes)
+        {
+			NSLog(@"Screen mode: %@", mode);
+		}
+		
+		count++;
+	}
+	
+	
+	if (screenCount > 1)
+    {
+		// 2.
+		// Select first external screen
+		self.extScreen = screens[1];
+        
+        self.extScreen.currentMode = [self.extScreen.availableModes lastObject];
+		
+        if (self.extWindow == nil || !CGRectEqualToRect(self.extWindow.bounds, self.extScreen.bounds))
+        {
+            // Size of window has actually changed
+            
+            // 4.
+            self.extWindow = [[UIWindow alloc] initWithFrame:self.extScreen.bounds];
+            
+            // 5.
+            self.extWindow.screen = self.extScreen;
+            
+            self.extImageView = [[UIImageView alloc] initWithFrame:self.extWindow.frame];
+            self.extImageView.contentMode = UIViewContentModeScaleAspectFit;
+            [self.extWindow addSubview:self.extImageView];
+            
+            // 6.
+            
+            // 7.
+            [self.extWindow makeKeyAndVisible];
+        }
+	}
+	else
+    {
+		self.extScreen = nil;
+        self.extWindow = nil;
+	}
 }
 
 

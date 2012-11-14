@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "FacebookSDK.h"
+#import "Event+Utilities.h"
 
 extern NSString *const FBSessionDidLogoutNotification;
 
@@ -17,7 +18,7 @@ typedef void (^ServiceManagerHandler)(id response, BOOL success, NSError *error)
 
 @interface ServiceManager : NSObject
 
-@property (nonatomic, strong) NSString *eventID;
+@property (nonatomic, strong) Event *event;
 
 - (BOOL)facebookLoginWithUI:(BOOL)allowUI completion:(ServiceManagerHandler)completion;
 - (void)facebookLogout;

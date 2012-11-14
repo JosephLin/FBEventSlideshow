@@ -64,11 +64,14 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    if ([ServiceManager sharedManager].eventID)
+    if ([ServiceManager sharedManager].event)
     {
         [self loadEventPhotos];
         
-        self.slideshowTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(displayNextPhoto) userInfo:nil repeats:YES];
+        if (!self.slideshowTimer)
+        {
+            self.slideshowTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(displayNextPhoto) userInfo:nil repeats:YES];
+        }
     }
 }
 
@@ -112,9 +115,10 @@
         NSURL *URL = [NSURL URLWithString:URLString];
         [self.imageView setImageWithURL:URL placeholderImage:self.imageView.image];
         [self.extImageView setImageWithURL:URL placeholderImage:self.imageView.image];
-        self.currentIndex++;
     }
-    else
+    
+    self.currentIndex++;
+    if (self.currentIndex >= [self.photos count])
     {
         self.currentIndex = 0;
     }
@@ -127,7 +131,10 @@
 {
     [self loadEventPhotos];
     
-    self.slideshowTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(displayNextPhoto) userInfo:nil repeats:YES];
+    if (!self.slideshowTimer)
+    {
+        self.slideshowTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(displayNextPhoto) userInfo:nil repeats:YES];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

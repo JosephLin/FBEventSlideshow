@@ -15,12 +15,12 @@ NSString *const FBSessionDidLogoutNotification = @"FBSessionDidLogoutNotificatio
 
 @implementation ServiceManager
 
-@synthesize eventID = _eventID;
 
+#pragma mark - Login / Logout
 
 - (BOOL)facebookLoginWithUI:(BOOL)allowUI completion:(ServiceManagerHandler)completion
 {
-    return [FBSession openActiveSessionWithReadPermissions:@[@"user_photos"]
+    return [FBSession openActiveSessionWithReadPermissions:@[@"user_photos", @"read_stream"]
                                               allowLoginUI:allowUI
                                          completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
                                              
@@ -48,16 +48,19 @@ NSString *const FBSessionDidLogoutNotification = @"FBSessionDidLogoutNotificatio
 }
 
 
+#pragma mark - Event
+
 - (void)loadEventWithID:(NSString *)eventID completion:(ServiceManagerHandler)completion
 {
-    self.eventID = eventID;
-    
     [FBRequestConnection startWithGraphPath:eventID completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         
         if (!error)
         {
             NSLog(@"Result: %@", result);
-            completion(result, YES, nil);
+            self.event = (Event *)[Event objectWithDict:result inContext:[Event mainMOC]];
+            [self.event save];
+            
+            completion(self.event, YES, nil);
         }
         else
         {
@@ -69,13 +72,13 @@ NSString *const FBSessionDidLogoutNotification = @"FBSessionDidLogoutNotificatio
 
 - (void)loadEventPhotosWithCompletion:(ServiceManagerHandler)completion
 {
-    if (!self.eventID)
+    if (!self.event)
     {
-        NSLog(@"Attempt to load event but there's no event ID!");
+        NSLog(@"Attempt to load event but there's no event!");
         return;
     }
     
-    NSString *path = [NSString stringWithFormat:@"%@/photos", self.eventID];
+    NSString *path = [NSString stringWithFormat:@"%@/photos", self.event.id];
     NSLog(@"Loading photos from: %@", path);
     
     [FBRequestConnection startWithGraphPath:path completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
@@ -94,25 +97,6 @@ NSString *const FBSessionDidLogoutNotification = @"FBSessionDidLogoutNotificatio
 }
 
 
-#pragma mark - Event ID
-
-- (void)setEventID:(NSString *)eventID
-{
-    _eventID = eventID;
-    [[NSUserDefaults standardUserDefaults] setObject:eventID forKey:@"EventID"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-- (NSString *)eventID
-{
-    if (!_eventID)
-    {
-        _eventID = [[NSUserDefaults standardUserDefaults] objectForKey:@"EventID"];
-    }
-    return _eventID;
-}
-
-
 #pragma mark - Singleton
 
 + (ServiceManager *)sharedManager
@@ -121,6 +105,16 @@ NSString *const FBSessionDidLogoutNotification = @"FBSessionDidLogoutNotificatio
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedManager = [ServiceManager new];
+        
+        NSArray *allEvents = [Event allObjectsInContext:[Event mainMOC]];
+        if ([allEvents count]) {
+            _sharedManager.event = allEvents[0];
+        }
+        
+        if ([allEvents count] > 1)
+        {
+            NSLog(@"Warning: more than 1 events found: %@.", allEvents);
+        }
     });
     return _sharedManager;
 }

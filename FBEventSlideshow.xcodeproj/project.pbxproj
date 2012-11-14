@@ -16,6 +16,15 @@
 		6D1E71AB1650842400663E78 /* loginBackgroundIPadPortrait.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D1E71A31650842400663E78 /* loginBackgroundIPadPortrait.jpg */; };
 		6D1E71AC1650842400663E78 /* loginBackgroundIPadPortrait@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D1E71A41650842400663E78 /* loginBackgroundIPadPortrait@2x.jpg */; };
 		6DDCF71F164FDD0000A2C7AE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DDCF71E164FDD0000A2C7AE /* LoginViewController.m */; };
+		7C1EF56F16537D5F004408D9 /* FBEventSlideshow.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF56D16537D5F004408D9 /* FBEventSlideshow.xcdatamodeld */; };
+		7C1EF57016537D6C004408D9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1F754E1648D28A0050CCE9 /* CoreData.framework */; };
+		7C1EF57116537DAE004408D9 /* NSManagedObject+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF56C16537D4F004408D9 /* NSManagedObject+Utilities.m */; };
+		7C1EF574165381E2004408D9 /* Like.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF573165381E2004408D9 /* Like.m */; };
+		7C1EF577165381E3004408D9 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF576165381E3004408D9 /* Photo.m */; };
+		7C1EF57A165381E3004408D9 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF579165381E3004408D9 /* Event.m */; };
+		7C1EF57D165381E3004408D9 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF57C165381E3004408D9 /* Comment.m */; };
+		7C1EF580165381E4004408D9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF57F165381E4004408D9 /* User.m */; };
+		7C1EF584165383A9004408D9 /* Event+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF583165383A9004408D9 /* Event+Utilities.m */; };
 		7C1F75081648C9BF0050CCE9 /* ServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F75071648C9BF0050CCE9 /* ServiceManager.m */; };
 		7C1F75281648CB210050CCE9 /* libfacebook_ios_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1F75141648CAB90050CCE9 /* libfacebook_ios_sdk.a */; };
 		7C1F752A1648CB280050CCE9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1F75291648CB280050CCE9 /* Social.framework */; };
@@ -88,6 +97,21 @@
 		6D1E71A41650842400663E78 /* loginBackgroundIPadPortrait@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "loginBackgroundIPadPortrait@2x.jpg"; sourceTree = "<group>"; };
 		6DDCF71D164FDD0000A2C7AE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		6DDCF71E164FDD0000A2C7AE /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		7C1EF56B16537D4F004408D9 /* NSManagedObject+Utilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Utilities.h"; sourceTree = "<group>"; };
+		7C1EF56C16537D4F004408D9 /* NSManagedObject+Utilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Utilities.m"; sourceTree = "<group>"; };
+		7C1EF56E16537D5F004408D9 /* FBEventSlideshow.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FBEventSlideshow.xcdatamodel; sourceTree = "<group>"; };
+		7C1EF572165381E2004408D9 /* Like.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Like.h; sourceTree = "<group>"; };
+		7C1EF573165381E2004408D9 /* Like.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Like.m; sourceTree = "<group>"; };
+		7C1EF575165381E3004408D9 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		7C1EF576165381E3004408D9 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		7C1EF578165381E3004408D9 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		7C1EF579165381E3004408D9 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		7C1EF57B165381E3004408D9 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		7C1EF57C165381E3004408D9 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		7C1EF57E165381E3004408D9 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		7C1EF57F165381E4004408D9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		7C1EF582165383A9004408D9 /* Event+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+Utilities.h"; sourceTree = "<group>"; };
+		7C1EF583165383A9004408D9 /* Event+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+Utilities.m"; sourceTree = "<group>"; };
 		7C1F75061648C9BF0050CCE9 /* ServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceManager.h; sourceTree = "<group>"; };
 		7C1F75071648C9BF0050CCE9 /* ServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceManager.m; sourceTree = "<group>"; };
 		7C1F750B1648CAB80050CCE9 /* facebook-ios-sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "facebook-ios-sdk.xcodeproj"; path = "facebook-ios-sdk/src/facebook-ios-sdk.xcodeproj"; sourceTree = "<group>"; };
@@ -124,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C1EF57016537D6C004408D9 /* CoreData.framework in Frameworks */,
 				7C379C7F164F9C4000FAABB0 /* ImageIO.framework in Frameworks */,
 				7C379C7D164F989A00FAABB0 /* libSDWebImage.a in Frameworks */,
 				7C1F75511648D2E10050CCE9 /* libsqlite3.0.dylib in Frameworks */,
@@ -153,6 +178,26 @@
 				6D1E71A41650842400663E78 /* loginBackgroundIPadPortrait@2x.jpg */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		7C1EF581165381ED004408D9 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C1EF56D16537D5F004408D9 /* FBEventSlideshow.xcdatamodeld */,
+				7C1EF57E165381E3004408D9 /* User.h */,
+				7C1EF57F165381E4004408D9 /* User.m */,
+				7C1EF57B165381E3004408D9 /* Comment.h */,
+				7C1EF57C165381E3004408D9 /* Comment.m */,
+				7C1EF578165381E3004408D9 /* Event.h */,
+				7C1EF579165381E3004408D9 /* Event.m */,
+				7C1EF582165383A9004408D9 /* Event+Utilities.h */,
+				7C1EF583165383A9004408D9 /* Event+Utilities.m */,
+				7C1EF575165381E3004408D9 /* Photo.h */,
+				7C1EF576165381E3004408D9 /* Photo.m */,
+				7C1EF572165381E2004408D9 /* Like.h */,
+				7C1EF573165381E2004408D9 /* Like.m */,
+			);
+			name = "Data Model";
 			sourceTree = "<group>";
 		};
 		7C1F750A1648CA9F0050CCE9 /* Externals */ = {
@@ -232,6 +277,9 @@
 				6DDCF71E164FDD0000A2C7AE /* LoginViewController.m */,
 				7C1F75061648C9BF0050CCE9 /* ServiceManager.h */,
 				7C1F75071648C9BF0050CCE9 /* ServiceManager.m */,
+				7C1EF56B16537D4F004408D9 /* NSManagedObject+Utilities.h */,
+				7C1EF56C16537D4F004408D9 /* NSManagedObject+Utilities.m */,
+				7C1EF581165381ED004408D9 /* Data Model */,
 				6D1E719C1650842400663E78 /* Images */,
 				7C49CAD716477E3D00035C30 /* Supporting Files */,
 			);
@@ -381,6 +429,14 @@
 				7C49CAF316477E3E00035C30 /* FlipsideViewController.m in Sources */,
 				7C1F75081648C9BF0050CCE9 /* ServiceManager.m in Sources */,
 				6DDCF71F164FDD0000A2C7AE /* LoginViewController.m in Sources */,
+				7C1EF56F16537D5F004408D9 /* FBEventSlideshow.xcdatamodeld in Sources */,
+				7C1EF57116537DAE004408D9 /* NSManagedObject+Utilities.m in Sources */,
+				7C1EF574165381E2004408D9 /* Like.m in Sources */,
+				7C1EF577165381E3004408D9 /* Photo.m in Sources */,
+				7C1EF57A165381E3004408D9 /* Event.m in Sources */,
+				7C1EF57D165381E3004408D9 /* Comment.m in Sources */,
+				7C1EF580165381E4004408D9 /* User.m in Sources */,
+				7C1EF584165383A9004408D9 /* Event+Utilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +576,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7C1EF56D16537D5F004408D9 /* FBEventSlideshow.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7C1EF56E16537D5F004408D9 /* FBEventSlideshow.xcdatamodel */,
+			);
+			currentVersion = 7C1EF56E16537D5F004408D9 /* FBEventSlideshow.xcdatamodel */;
+			path = FBEventSlideshow.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7C49CAC316477E3D00035C30 /* Project object */;
 }

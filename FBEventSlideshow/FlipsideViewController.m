@@ -15,7 +15,6 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
 @property (strong, nonatomic) IBOutlet UITextField *idTextField;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
 @end
 
 
@@ -31,17 +30,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.idTextField.text = [ServiceManager sharedManager].eventID;
-    if ([self.idTextField.text length])
-    {
-        [[ServiceManager sharedManager] loadEventWithID:self.idTextField.text completion:^(id response, BOOL success, NSError *error) {
-            if (success)
-            {
-                self.nameLabel.text = [response objectForKey:@"name"];
-                self.descriptionLabel.text = [response objectForKey:@"description"];
-            }
-        }];
-    }
+    self.idTextField.text = [ServiceManager sharedManager].event.id;
+    self.nameLabel.text = [ServiceManager sharedManager].event.name;
 }
 
 
@@ -51,11 +41,10 @@
 {
     if ([textField.text length])
     {
-        [[ServiceManager sharedManager] loadEventWithID:self.idTextField.text completion:^(id response, BOOL success, NSError *error) {
+        [[ServiceManager sharedManager] loadEventWithID:self.idTextField.text completion:^(Event *event, BOOL success, NSError *error) {
             if (success)
             {
-                self.nameLabel.text = [response objectForKey:@"name"];
-                self.descriptionLabel.text = [response objectForKey:@"description"];
+                self.nameLabel.text = event.name;
             }
             else
             {

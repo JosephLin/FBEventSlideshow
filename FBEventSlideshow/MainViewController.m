@@ -10,10 +10,10 @@
 #import "FlipsideViewController.h"
 #import "ServiceManager.h"
 #import "UIImageView+WebCache.h"
+#import "PhotoViewController.h"
 
 
 @interface MainViewController () <UIPopoverControllerDelegate>
-@property (nonatomic, strong) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) UIPopoverController *settingsPopoverController;
 @property (nonatomic, strong) UIScreen *extScreen;
 @property (nonatomic, strong) UIWindow *extWindow;
@@ -21,6 +21,10 @@
 @property (nonatomic, strong) NSTimer *slideshowTimer;
 @property (nonatomic, strong) NSArray *photos;
 @property (nonatomic) NSUInteger currentIndex;
+
+@property (nonatomic, strong) PhotoViewController *currentPhotoViewController;
+@property (nonatomic, strong) PhotoViewController *nextPhotoViewController;
+
 @end
 
 
@@ -112,10 +116,29 @@
     if (self.currentIndex < [self.photos count])
     {
         Photo *photo = self.photos[self.currentIndex];
-        NSString *URLString = photo.source;
-        NSURL *URL = [NSURL URLWithString:URLString];
-        [self.imageView setImageWithURL:URL placeholderImage:self.imageView.image];
-        [self.extImageView setImageWithURL:URL placeholderImage:self.imageView.image];
+
+        self.nextPhotoViewController = [[PhotoViewController alloc] init];
+        self.nextPhotoViewController.photo = photo;
+        [self.view addSubview:self.nextPhotoViewController.view];
+        self.nextPhotoViewController.view.alpha = 0.0;
+        self.nextPhotoViewController.view.frame = CGRectMake(0, 0, [photo.width floatValue], [photo.height floatValue]);
+
+        [self.nextPhotoViewController displayPhotoWithCompletion:^(BOOL success) {
+           
+            [UIView animateWithDuration:0.5 animations:^{
+               
+                self.nextPhotoViewController.view.center = self.view.center;
+                self.nextPhotoViewController.view.alpha = 1.0;
+                self.currentPhotoViewController.view.alpha = 0.0;
+            } completion:^(BOOL finished) {
+                
+                [self.currentPhotoViewController.view removeFromSuperview];
+                self.currentPhotoViewController = self.nextPhotoViewController;
+                self.nextPhotoViewController = nil;
+            }];
+        }];
+        
+//        [self.extImageView setImageWithURL:URL placeholderImage:self.imageView.image];
     }
     
     self.currentIndex++;

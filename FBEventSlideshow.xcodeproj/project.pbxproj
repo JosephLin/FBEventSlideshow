@@ -28,6 +28,8 @@
 		7C1EF59916548E7C004408D9 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF59816548E7C004408D9 /* Comment.m */; };
 		7C1EF59C16548E7D004408D9 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF59B16548E7D004408D9 /* Event.m */; };
 		7C1EF5A216548EB4004408D9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF5A116548EB4004408D9 /* User.m */; };
+		7C1EF5A9165491C0004408D9 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF5A7165491C0004408D9 /* PhotoViewController.m */; };
+		7C1EF5AA165491C0004408D9 /* PhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C1EF5A8165491C0004408D9 /* PhotoViewController.xib */; };
 		7C1F75081648C9BF0050CCE9 /* ServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F75071648C9BF0050CCE9 /* ServiceManager.m */; };
 		7C1F75281648CB210050CCE9 /* libfacebook_ios_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1F75141648CAB90050CCE9 /* libfacebook_ios_sdk.a */; };
 		7C1F752A1648CB280050CCE9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1F75291648CB280050CCE9 /* Social.framework */; };
@@ -121,6 +123,9 @@
 		7C1EF59B16548E7D004408D9 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		7C1EF5A016548EB4004408D9 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		7C1EF5A116548EB4004408D9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		7C1EF5A6165491C0004408D9 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		7C1EF5A7165491C0004408D9 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		7C1EF5A8165491C0004408D9 /* PhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoViewController.xib; sourceTree = "<group>"; };
 		7C1F75061648C9BF0050CCE9 /* ServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceManager.h; sourceTree = "<group>"; };
 		7C1F75071648C9BF0050CCE9 /* ServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceManager.m; sourceTree = "<group>"; };
 		7C1F750B1648CAB80050CCE9 /* facebook-ios-sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "facebook-ios-sdk.xcodeproj"; path = "facebook-ios-sdk/src/facebook-ios-sdk.xcodeproj"; sourceTree = "<group>"; };
@@ -189,7 +194,7 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		7C1EF581165381ED004408D9 /* Data Model */ = {
+		7C1EF581165381ED004408D9 /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
 				7C1EF56D16537D5F004408D9 /* FBEventSlideshow.xcdatamodeld */,
@@ -210,7 +215,43 @@
 				7C1EF58516538E2F004408D9 /* Photo+Utilities.h */,
 				7C1EF58616538E2F004408D9 /* Photo+Utilities.m */,
 			);
-			name = "Data Model";
+			name = "Data Models";
+			sourceTree = "<group>";
+		};
+		7C1EF5A316549070004408D9 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				7C1EF56B16537D4F004408D9 /* NSManagedObject+Utilities.h */,
+				7C1EF56C16537D4F004408D9 /* NSManagedObject+Utilities.m */,
+				7C1EF5881654862C004408D9 /* NSDate+Utilities.h */,
+				7C1EF5891654862D004408D9 /* NSDate+Utilities.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		7C1EF5A41654907E004408D9 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				7C1F75061648C9BF0050CCE9 /* ServiceManager.h */,
+				7C1F75071648C9BF0050CCE9 /* ServiceManager.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		7C1EF5A516549095004408D9 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7C49CAEE16477E3E00035C30 /* MainViewController.h */,
+				7C49CAEF16477E3E00035C30 /* MainViewController.m */,
+				7C49CAF116477E3E00035C30 /* FlipsideViewController.h */,
+				7C49CAF216477E3E00035C30 /* FlipsideViewController.m */,
+				6DDCF71D164FDD0000A2C7AE /* LoginViewController.h */,
+				6DDCF71E164FDD0000A2C7AE /* LoginViewController.m */,
+				7C1EF5A6165491C0004408D9 /* PhotoViewController.h */,
+				7C1EF5A7165491C0004408D9 /* PhotoViewController.m */,
+				7C1EF5A8165491C0004408D9 /* PhotoViewController.xib */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		7C1F750A1648CA9F0050CCE9 /* Externals */ = {
@@ -282,19 +323,10 @@
 				7C49CAEB16477E3E00035C30 /* MainStoryboard_iPad.storyboard */,
 				7C49CADF16477E3D00035C30 /* AppDelegate.h */,
 				7C49CAE016477E3D00035C30 /* AppDelegate.m */,
-				7C49CAEE16477E3E00035C30 /* MainViewController.h */,
-				7C49CAEF16477E3E00035C30 /* MainViewController.m */,
-				7C49CAF116477E3E00035C30 /* FlipsideViewController.h */,
-				7C49CAF216477E3E00035C30 /* FlipsideViewController.m */,
-				6DDCF71D164FDD0000A2C7AE /* LoginViewController.h */,
-				6DDCF71E164FDD0000A2C7AE /* LoginViewController.m */,
-				7C1F75061648C9BF0050CCE9 /* ServiceManager.h */,
-				7C1F75071648C9BF0050CCE9 /* ServiceManager.m */,
-				7C1EF56B16537D4F004408D9 /* NSManagedObject+Utilities.h */,
-				7C1EF56C16537D4F004408D9 /* NSManagedObject+Utilities.m */,
-				7C1EF5881654862C004408D9 /* NSDate+Utilities.h */,
-				7C1EF5891654862D004408D9 /* NSDate+Utilities.m */,
-				7C1EF581165381ED004408D9 /* Data Model */,
+				7C1EF5A516549095004408D9 /* View Controllers */,
+				7C1EF5A41654907E004408D9 /* API */,
+				7C1EF5A316549070004408D9 /* Categories */,
+				7C1EF581165381ED004408D9 /* Data Models */,
 				6D1E719C1650842400663E78 /* Images */,
 				7C49CAD716477E3D00035C30 /* Supporting Files */,
 			);
@@ -428,6 +460,7 @@
 				6D1E71AA1650842400663E78 /* loginBackgroundIPadLandscape@2x.jpg in Resources */,
 				6D1E71AB1650842400663E78 /* loginBackgroundIPadPortrait.jpg in Resources */,
 				6D1E71AC1650842400663E78 /* loginBackgroundIPadPortrait@2x.jpg in Resources */,
+				7C1EF5AA165491C0004408D9 /* PhotoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +488,7 @@
 				7C1EF59916548E7C004408D9 /* Comment.m in Sources */,
 				7C1EF59C16548E7D004408D9 /* Event.m in Sources */,
 				7C1EF5A216548EB4004408D9 /* User.m in Sources */,
+				7C1EF5A9165491C0004408D9 /* PhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

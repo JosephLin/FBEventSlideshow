@@ -2,14 +2,14 @@
 //  Event.h
 //  FBEventSlideshow
 //
-//  Created by Joseph Lin on 12/11/14.
+//  Created by Joseph Lin on 12/11/15.
 //  Copyright (c) 2012年 Joseph Lin. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Photo;
+@class Comment, Photo;
 
 @interface Event : NSManagedObject
 
@@ -21,8 +21,8 @@
 
 @interface Event (CoreDataGeneratedAccessors)
 
-- (void)addCommentsObject:(NSManagedObject *)value;
-- (void)removeCommentsObject:(NSManagedObject *)value;
+- (void)addCommentsObject:(Comment *)value;
+- (void)removeCommentsObject:(Comment *)value;
 - (void)addComments:(NSSet *)values;
 - (void)removeComments:(NSSet *)values;
 

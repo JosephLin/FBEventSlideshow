@@ -2,14 +2,14 @@
 //  Comment.m
 //  FBEventSlideshow
 //
-//  Created by Joseph Lin on 12/11/14.
+//  Created by Joseph Lin on 12/11/15.
 //  Copyright (c) 2012年 Joseph Lin. All rights reserved.
 //
 
 #import "Comment.h"
 #import "Event.h"
-#import "Like.h"
 #import "Photo.h"
+#import "User.h"
 
 
 @implementation Comment

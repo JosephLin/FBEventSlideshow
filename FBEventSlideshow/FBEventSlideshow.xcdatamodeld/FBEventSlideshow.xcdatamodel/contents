@@ -6,7 +6,7 @@
         <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="comments" inverseEntity="Event" syncable="YES"/>
         <relationship name="from" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="comments" inverseEntity="User" syncable="YES"/>
-        <relationship name="likes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Like" inverseName="comment" inverseEntity="Like" syncable="YES"/>
+        <relationship name="likes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="likedComments" inverseEntity="User" syncable="YES"/>
         <relationship name="photo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="comments" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <entity name="Event" representedClassName="Event" syncable="YES">
@@ -14,11 +14,6 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="event" inverseEntity="Comment" syncable="YES"/>
         <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="event" inverseEntity="Photo" syncable="YES"/>
-    </entity>
-    <entity name="Like" representedClassName="Like" syncable="YES">
-        <relationship name="comment" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Comment" inverseName="likes" inverseEntity="Comment" syncable="YES"/>
-        <relationship name="from" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="likes" inverseEntity="User" syncable="YES"/>
-        <relationship name="photo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="likes" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <entity name="Photo" representedClassName="Photo" syncable="YES">
         <attribute name="createdTime" optional="YES" attributeType="Date" syncable="YES"/>
@@ -30,20 +25,20 @@
         <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="photo" inverseEntity="Comment" syncable="YES"/>
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="photos" inverseEntity="Event" syncable="YES"/>
         <relationship name="from" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="photos" inverseEntity="User" syncable="YES"/>
-        <relationship name="likes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Like" inverseName="photo" inverseEntity="Like" syncable="YES"/>
+        <relationship name="likes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="likedPhotos" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="id" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="from" inverseEntity="Comment" syncable="YES"/>
-        <relationship name="likes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Like" inverseName="from" inverseEntity="Like" syncable="YES"/>
+        <relationship name="likedComments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="likes" inverseEntity="Comment" syncable="YES"/>
+        <relationship name="likedPhotos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="likes" inverseEntity="Photo" syncable="YES"/>
         <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="from" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <elements>
         <element name="Event" positionX="-306" positionY="-69" width="128" height="103"/>
         <element name="Photo" positionX="-63" positionY="-42" width="128" height="193"/>
         <element name="Comment" positionX="135" positionY="-198" width="128" height="148"/>
-        <element name="Like" positionX="369" positionY="-27" width="128" height="88"/>
-        <element name="User" positionX="583" positionY="81" width="128" height="118"/>
+        <element name="User" positionX="583" positionY="81" width="128" height="133"/>
     </elements>
 </model>

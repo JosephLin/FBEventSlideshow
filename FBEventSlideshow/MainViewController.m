@@ -93,10 +93,10 @@
 
 - (void)loadEventPhotos
 {
-    [[ServiceManager sharedManager] loadEventPhotosWithCompletion:^(id response, BOOL success, NSError *error) {
+    [[ServiceManager sharedManager] loadEventPhotosWithCompletion:^(NSArray *photos, BOOL success, NSError *error) {
         if (success)
         {
-            self.photos = response[@"data"];
+            self.photos = photos;
             
             int64_t delayInSeconds = 30.0;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
@@ -111,7 +111,8 @@
 {
     if (self.currentIndex < [self.photos count])
     {
-        NSString *URLString = self.photos[self.currentIndex][@"source"];
+        Photo *photo = self.photos[self.currentIndex];
+        NSString *URLString = photo.source;
         NSURL *URL = [NSURL URLWithString:URLString];
         [self.imageView setImageWithURL:URL placeholderImage:self.imageView.image];
         [self.extImageView setImageWithURL:URL placeholderImage:self.imageView.image];

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "FacebookSDK.h"
 #import "Event+Utilities.h"
+#import "Photo+Utilities.h"
 
 extern NSString *const FBSessionDidLogoutNotification;
 

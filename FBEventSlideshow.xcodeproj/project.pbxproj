@@ -19,12 +19,15 @@
 		7C1EF56F16537D5F004408D9 /* FBEventSlideshow.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF56D16537D5F004408D9 /* FBEventSlideshow.xcdatamodeld */; };
 		7C1EF57016537D6C004408D9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1F754E1648D28A0050CCE9 /* CoreData.framework */; };
 		7C1EF57116537DAE004408D9 /* NSManagedObject+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF56C16537D4F004408D9 /* NSManagedObject+Utilities.m */; };
-		7C1EF574165381E2004408D9 /* Like.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF573165381E2004408D9 /* Like.m */; };
-		7C1EF577165381E3004408D9 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF576165381E3004408D9 /* Photo.m */; };
-		7C1EF57A165381E3004408D9 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF579165381E3004408D9 /* Event.m */; };
-		7C1EF57D165381E3004408D9 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF57C165381E3004408D9 /* Comment.m */; };
-		7C1EF580165381E4004408D9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF57F165381E4004408D9 /* User.m */; };
 		7C1EF584165383A9004408D9 /* Event+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF583165383A9004408D9 /* Event+Utilities.m */; };
+		7C1EF58716538E2F004408D9 /* Photo+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF58616538E2F004408D9 /* Photo+Utilities.m */; };
+		7C1EF58A1654862D004408D9 /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF5891654862D004408D9 /* NSDate+Utilities.m */; };
+		7C1EF590165489A4004408D9 /* User+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF58F165489A4004408D9 /* User+Utilities.m */; };
+		7C1EF593165489EF004408D9 /* Comment+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF592165489EF004408D9 /* Comment+Utilities.m */; };
+		7C1EF59616548E7B004408D9 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF59516548E7B004408D9 /* Photo.m */; };
+		7C1EF59916548E7C004408D9 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF59816548E7C004408D9 /* Comment.m */; };
+		7C1EF59C16548E7D004408D9 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF59B16548E7D004408D9 /* Event.m */; };
+		7C1EF5A216548EB4004408D9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF5A116548EB4004408D9 /* User.m */; };
 		7C1F75081648C9BF0050CCE9 /* ServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F75071648C9BF0050CCE9 /* ServiceManager.m */; };
 		7C1F75281648CB210050CCE9 /* libfacebook_ios_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1F75141648CAB90050CCE9 /* libfacebook_ios_sdk.a */; };
 		7C1F752A1648CB280050CCE9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1F75291648CB280050CCE9 /* Social.framework */; };
@@ -100,18 +103,24 @@
 		7C1EF56B16537D4F004408D9 /* NSManagedObject+Utilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Utilities.h"; sourceTree = "<group>"; };
 		7C1EF56C16537D4F004408D9 /* NSManagedObject+Utilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Utilities.m"; sourceTree = "<group>"; };
 		7C1EF56E16537D5F004408D9 /* FBEventSlideshow.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FBEventSlideshow.xcdatamodel; sourceTree = "<group>"; };
-		7C1EF572165381E2004408D9 /* Like.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Like.h; sourceTree = "<group>"; };
-		7C1EF573165381E2004408D9 /* Like.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Like.m; sourceTree = "<group>"; };
-		7C1EF575165381E3004408D9 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
-		7C1EF576165381E3004408D9 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
-		7C1EF578165381E3004408D9 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		7C1EF579165381E3004408D9 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		7C1EF57B165381E3004408D9 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
-		7C1EF57C165381E3004408D9 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
-		7C1EF57E165381E3004408D9 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		7C1EF57F165381E4004408D9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		7C1EF582165383A9004408D9 /* Event+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+Utilities.h"; sourceTree = "<group>"; };
 		7C1EF583165383A9004408D9 /* Event+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+Utilities.m"; sourceTree = "<group>"; };
+		7C1EF58516538E2F004408D9 /* Photo+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Photo+Utilities.h"; sourceTree = "<group>"; };
+		7C1EF58616538E2F004408D9 /* Photo+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Photo+Utilities.m"; sourceTree = "<group>"; };
+		7C1EF5881654862C004408D9 /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
+		7C1EF5891654862D004408D9 /* NSDate+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
+		7C1EF58E165489A4004408D9 /* User+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+Utilities.h"; sourceTree = "<group>"; };
+		7C1EF58F165489A4004408D9 /* User+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+Utilities.m"; sourceTree = "<group>"; };
+		7C1EF591165489EF004408D9 /* Comment+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Comment+Utilities.h"; sourceTree = "<group>"; };
+		7C1EF592165489EF004408D9 /* Comment+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Comment+Utilities.m"; sourceTree = "<group>"; };
+		7C1EF59416548E7B004408D9 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		7C1EF59516548E7B004408D9 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		7C1EF59716548E7C004408D9 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		7C1EF59816548E7C004408D9 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		7C1EF59A16548E7D004408D9 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		7C1EF59B16548E7D004408D9 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		7C1EF5A016548EB4004408D9 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		7C1EF5A116548EB4004408D9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		7C1F75061648C9BF0050CCE9 /* ServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceManager.h; sourceTree = "<group>"; };
 		7C1F75071648C9BF0050CCE9 /* ServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceManager.m; sourceTree = "<group>"; };
 		7C1F750B1648CAB80050CCE9 /* facebook-ios-sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "facebook-ios-sdk.xcodeproj"; path = "facebook-ios-sdk/src/facebook-ios-sdk.xcodeproj"; sourceTree = "<group>"; };
@@ -184,18 +193,22 @@
 			isa = PBXGroup;
 			children = (
 				7C1EF56D16537D5F004408D9 /* FBEventSlideshow.xcdatamodeld */,
-				7C1EF57E165381E3004408D9 /* User.h */,
-				7C1EF57F165381E4004408D9 /* User.m */,
-				7C1EF57B165381E3004408D9 /* Comment.h */,
-				7C1EF57C165381E3004408D9 /* Comment.m */,
-				7C1EF578165381E3004408D9 /* Event.h */,
-				7C1EF579165381E3004408D9 /* Event.m */,
+				7C1EF5A016548EB4004408D9 /* User.h */,
+				7C1EF5A116548EB4004408D9 /* User.m */,
+				7C1EF58E165489A4004408D9 /* User+Utilities.h */,
+				7C1EF58F165489A4004408D9 /* User+Utilities.m */,
+				7C1EF59A16548E7D004408D9 /* Event.h */,
+				7C1EF59B16548E7D004408D9 /* Event.m */,
 				7C1EF582165383A9004408D9 /* Event+Utilities.h */,
 				7C1EF583165383A9004408D9 /* Event+Utilities.m */,
-				7C1EF575165381E3004408D9 /* Photo.h */,
-				7C1EF576165381E3004408D9 /* Photo.m */,
-				7C1EF572165381E2004408D9 /* Like.h */,
-				7C1EF573165381E2004408D9 /* Like.m */,
+				7C1EF59716548E7C004408D9 /* Comment.h */,
+				7C1EF59816548E7C004408D9 /* Comment.m */,
+				7C1EF591165489EF004408D9 /* Comment+Utilities.h */,
+				7C1EF592165489EF004408D9 /* Comment+Utilities.m */,
+				7C1EF59416548E7B004408D9 /* Photo.h */,
+				7C1EF59516548E7B004408D9 /* Photo.m */,
+				7C1EF58516538E2F004408D9 /* Photo+Utilities.h */,
+				7C1EF58616538E2F004408D9 /* Photo+Utilities.m */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";
@@ -279,6 +292,8 @@
 				7C1F75071648C9BF0050CCE9 /* ServiceManager.m */,
 				7C1EF56B16537D4F004408D9 /* NSManagedObject+Utilities.h */,
 				7C1EF56C16537D4F004408D9 /* NSManagedObject+Utilities.m */,
+				7C1EF5881654862C004408D9 /* NSDate+Utilities.h */,
+				7C1EF5891654862D004408D9 /* NSDate+Utilities.m */,
 				7C1EF581165381ED004408D9 /* Data Model */,
 				6D1E719C1650842400663E78 /* Images */,
 				7C49CAD716477E3D00035C30 /* Supporting Files */,
@@ -431,12 +446,15 @@
 				6DDCF71F164FDD0000A2C7AE /* LoginViewController.m in Sources */,
 				7C1EF56F16537D5F004408D9 /* FBEventSlideshow.xcdatamodeld in Sources */,
 				7C1EF57116537DAE004408D9 /* NSManagedObject+Utilities.m in Sources */,
-				7C1EF574165381E2004408D9 /* Like.m in Sources */,
-				7C1EF577165381E3004408D9 /* Photo.m in Sources */,
-				7C1EF57A165381E3004408D9 /* Event.m in Sources */,
-				7C1EF57D165381E3004408D9 /* Comment.m in Sources */,
-				7C1EF580165381E4004408D9 /* User.m in Sources */,
 				7C1EF584165383A9004408D9 /* Event+Utilities.m in Sources */,
+				7C1EF58716538E2F004408D9 /* Photo+Utilities.m in Sources */,
+				7C1EF58A1654862D004408D9 /* NSDate+Utilities.m in Sources */,
+				7C1EF590165489A4004408D9 /* User+Utilities.m in Sources */,
+				7C1EF593165489EF004408D9 /* Comment+Utilities.m in Sources */,
+				7C1EF59616548E7B004408D9 /* Photo.m in Sources */,
+				7C1EF59916548E7C004408D9 /* Comment.m in Sources */,
+				7C1EF59C16548E7D004408D9 /* Event.m in Sources */,
+				7C1EF5A216548EB4004408D9 /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

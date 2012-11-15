@@ -8,12 +8,8 @@
 
 #import "Event+Utilities.h"
 
-@implementation Event (Utilities)
 
-+ (void)theEvent
-{
-    [self allObjectsCountInContext:[self mainMOC]];
-}
+@implementation Event (Utilities)
 
 + (NSManagedObject *)objectWithDict:(NSDictionary*)dict inContext:(NSManagedObjectContext*)context
 {

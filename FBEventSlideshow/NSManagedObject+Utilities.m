@@ -116,33 +116,44 @@
 	return object;
 }
 
-+ (void)objectsWithArray:(NSArray*)array completion:(void(^)(NSArray* objects))completion
++ (NSArray *)objectsWithArray:(NSArray*)array inContext:(NSManagedObjectContext*)context
 {
-    [[self privateMOC] performBlock:^{
-        
-        __block NSMutableArray *moids = [NSMutableArray arrayWithCapacity:[array count]];
-        for (NSDictionary* dict in array)
-        {
-            id privateMO = [self objectWithDict:dict inContext:[self privateMOC]];
-            NSManagedObjectID *moid = [privateMO objectID];
-            [moids addObject:moid];
-        }
-        [[self privateMOC] save:nil];
-        
-        [[self mainMOC] performBlock:^{
-
-            [[self mainMOC] save:nil];
-
-            __block NSMutableArray *photos = [NSMutableArray arrayWithCapacity:[array count]];
-            for (id moid in moids)
-            {
-                id mainMO = [[self mainMOC] objectWithID:moid];
-                [photos addObject:mainMO];
-            }
-            completion(photos);
-        }];
-    }];
+    NSMutableArray *objects = [NSMutableArray arrayWithCapacity:[array count]];
+    for (NSDictionary* dict in array)
+    {
+        NSManagedObject *object = [self objectWithDict:dict inContext:context];
+        [objects addObject:object];
+    }
+    return objects;
 }
+//
+//+ (void)objectsWithArray:(NSArray*)array completion:(void(^)(NSArray* objects))completion
+//{
+//    [[self privateMOC] performBlock:^{
+//        
+//        __block NSMutableArray *moids = [NSMutableArray arrayWithCapacity:[array count]];
+//        for (NSDictionary* dict in array)
+//        {
+//            id privateMO = [self objectWithDict:dict inContext:[self privateMOC]];
+//            NSManagedObjectID *moid = [privateMO objectID];
+//            [moids addObject:moid];
+//        }
+//        [[self privateMOC] save:nil];
+//        
+//        [[self mainMOC] performBlock:^{
+//
+//            [[self mainMOC] save:nil];
+//
+//            __block NSMutableArray *objects = [NSMutableArray arrayWithCapacity:[array count]];
+//            for (id moid in moids)
+//            {
+//                id mainMO = [[self mainMOC] objectWithID:moid];
+//                [objects addObject:mainMO];
+//            }
+//            completion(objects);
+//        }];
+//    }];
+//}
 
 + (NSArray *)objectsWithPredicate:(NSPredicate*)predicate sortDescriptors:(NSArray*)sortDescriptors inContext:(NSManagedObjectContext*)context
 {

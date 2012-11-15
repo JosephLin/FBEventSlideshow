@@ -86,7 +86,9 @@ NSString *const FBSessionDidLogoutNotification = @"FBSessionDidLogoutNotificatio
         if (!error)
         {
             NSLog(@"Result: %@", result);
-            completion(result, YES, nil);
+            NSArray *photos = [Photo objectsWithArray:result[@"data"] inContext:[Photo mainMOC]];
+            self.event.photos = [NSSet setWithArray:photos];
+            completion(photos, YES, nil);
         }
         else
         {

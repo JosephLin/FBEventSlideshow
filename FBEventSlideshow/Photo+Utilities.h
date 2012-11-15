@@ -1,15 +1,17 @@
 //
-//  Event+Utilities.h
+//  Photo+Utilities.h
 //  FBEventSlideshow
 //
 //  Created by Joseph Lin on 12/11/14.
 //  Copyright (c) 2012年 Joseph Lin. All rights reserved.
 //
 
-#import "Event.h"
+#import "Photo.h"
 #import "NSManagedObject+Utilities.h"
+#import "User.h"
+#import "Comment.h"
 
 
-@interface Event (Utilities)
+@interface Photo (Utilities)
 
 @end

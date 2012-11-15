@@ -22,7 +22,7 @@
 + (NSManagedObject *)objectInContext:(NSManagedObjectContext*)context;
 + (NSManagedObject *)objectWithID:(NSString*)requestedID inContext:(NSManagedObjectContext*)context;
 + (NSManagedObject *)objectWithDict:(NSDictionary*)dict inContext:(NSManagedObjectContext*)context;
-+ (void)objectsWithArray:(NSArray*)array completion:(void(^)(NSArray* photos))completion;
++ (NSArray *)objectsWithArray:(NSArray*)array inContext:(NSManagedObjectContext*)context;
 
 + (NSArray *)objectsWithPredicate:(NSPredicate*)predicate sortDescriptors:(NSArray*)sortDescriptors inContext:(NSManagedObjectContext*)context;
 + (NSUInteger)objectsCountWithPredicate:(NSPredicate*)predicate sortDescriptors:(NSArray*)sortDescriptors inContext:(NSManagedObjectContext*)context;

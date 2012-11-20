@@ -12,6 +12,10 @@
 #import "UIImageView+WebCache.h"
 #import "PhotoViewController.h"
 
+#define kSlideshowDuration      5.0
+#define kFadeInFadeOutDuration  0.5
+#define kFeedRefreshInterval    20.0
+
 
 @interface MainViewController () <UIPopoverControllerDelegate>
 @property (nonatomic, strong) UIPopoverController *settingsPopoverController;
@@ -71,11 +75,7 @@
     if ([ServiceManager sharedManager].event)
     {
         [self loadEventPhotos];
-        
-        if (!self.slideshowTimer)
-        {
-            self.slideshowTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(displayNextPhoto) userInfo:nil repeats:YES];
-        }
+        [self scheduleSlideshowTimer];
     }
 }
 
@@ -95,6 +95,14 @@
 
 #pragma mark - Photos
 
+- (void)scheduleSlideshowTimer
+{
+    if (!self.slideshowTimer)
+    {
+        self.slideshowTimer = [NSTimer scheduledTimerWithTimeInterval:kSlideshowDuration target:self selector:@selector(displayNextPhoto) userInfo:nil repeats:YES];
+    }
+}
+
 - (void)loadEventPhotos
 {
     [[ServiceManager sharedManager] loadEventPhotosWithCompletion:^(NSArray *photos, BOOL success, NSError *error) {
@@ -102,7 +110,7 @@
         {
             self.photos = photos;
             
-            int64_t delayInSeconds = 30.0;
+            int64_t delayInSeconds = kFeedRefreshInterval;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                 [self loadEventPhotos];
@@ -116,22 +124,22 @@
     if (self.currentIndex < [self.photos count])
     {
         Photo *photo = self.photos[self.currentIndex];
-
+        
         self.nextPhotoViewController = [[PhotoViewController alloc] init];
         self.nextPhotoViewController.photo = photo;
-        [self.view addSubview:self.nextPhotoViewController.view];
+        self.nextPhotoViewController.animationDuration = kSlideshowDuration;
+        self.nextPhotoViewController.view.frame = self.view.frame;
         self.nextPhotoViewController.view.alpha = 0.0;
-        self.nextPhotoViewController.view.frame = CGRectMake(0, 0, [photo.width floatValue], [photo.height floatValue]);
+        [self.view addSubview:self.nextPhotoViewController.view];
 
         [self.nextPhotoViewController displayPhotoWithCompletion:^(BOOL success) {
            
-            [UIView animateWithDuration:0.5 animations:^{
-               
-                self.nextPhotoViewController.view.center = self.view.center;
+            [self.nextPhotoViewController animatePhotoDisplay];
+            
+            [UIView animateWithDuration:kFadeInFadeOutDuration animations:^{
                 self.nextPhotoViewController.view.alpha = 1.0;
                 self.currentPhotoViewController.view.alpha = 0.0;
             } completion:^(BOOL finished) {
-                
                 [self.currentPhotoViewController.view removeFromSuperview];
                 self.currentPhotoViewController = self.nextPhotoViewController;
                 self.nextPhotoViewController = nil;
@@ -153,12 +161,8 @@
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
-    [self loadEventPhotos];
-    
-    if (!self.slideshowTimer)
-    {
-        self.slideshowTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(displayNextPhoto) userInfo:nil repeats:YES];
-    }
+    [self loadEventPhotos];    
+    [self scheduleSlideshowTimer];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

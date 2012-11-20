@@ -21,6 +21,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if (self.animationDuration == 0) {
+        self.animationDuration = 5.0;
+    }
 }
 
 - (void)displayPhotoWithCompletion:(void(^)(BOOL success))completion
@@ -50,6 +53,34 @@
     {
         self.titleLabel.hidden = YES;
     }
+}
+
+- (void)animatePhotoDisplay
+{
+    CGFloat viewWidth = self.view.frame.size.width;
+    CGFloat viewHeight = self.view.frame.size.height;
+    
+    CGFloat photoWidth = [self.photo.width floatValue];
+    CGFloat photoHeight = [self.photo.height floatValue];
+    
+    CGFloat ratio = viewWidth / photoWidth;
+    photoWidth *= ratio;
+    photoHeight *= ratio;
+    
+    if (photoHeight < viewHeight)
+    {
+        ratio = viewHeight / photoHeight;
+        photoWidth *= ratio;
+        photoHeight *= ratio;
+    }
+    
+    CGRect startRect = CGRectMake(0, 0, photoWidth, photoHeight);
+    CGRect endRect = CGRectMake(viewWidth - photoWidth, viewHeight - photoHeight, photoWidth, photoHeight);
+
+    self.imageView.frame = startRect;
+    [UIView animateWithDuration:self.animationDuration animations:^{
+        self.imageView.frame = endRect;
+    }];
 }
 
 

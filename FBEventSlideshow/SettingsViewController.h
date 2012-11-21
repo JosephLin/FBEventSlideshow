@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 
-@interface FlipsideViewController : UITableViewController
+@interface SettingsViewController : UITableViewController
 
 @end

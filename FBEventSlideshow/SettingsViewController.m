@@ -6,12 +6,12 @@
 //  Copyright (c) 2012 Joseph Lin. All rights reserved.
 //
 
-#import "FlipsideViewController.h"
+#import "SettingsViewController.h"
 #import "ServiceManager.h"
 
 
 
-@interface FlipsideViewController ()
+@interface SettingsViewController ()
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
 @property (strong, nonatomic) IBOutlet UITextField *idTextField;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
@@ -19,7 +19,7 @@
 
 
 
-@implementation FlipsideViewController
+@implementation SettingsViewController
 
 - (void)awakeFromNib
 {

@@ -50,7 +50,9 @@
 		7C49CAEA16477E3E00035C30 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C49CAE816477E3E00035C30 /* MainStoryboard_iPhone.storyboard */; };
 		7C49CAED16477E3E00035C30 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C49CAEB16477E3E00035C30 /* MainStoryboard_iPad.storyboard */; };
 		7C49CAF016477E3E00035C30 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C49CAEF16477E3E00035C30 /* MainViewController.m */; };
-		7C49CAF316477E3E00035C30 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C49CAF216477E3E00035C30 /* FlipsideViewController.m */; };
+		7C49CAF316477E3E00035C30 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C49CAF216477E3E00035C30 /* SettingsViewController.m */; };
+		7C7A1F40165C5BBD001C3CBE /* SlideshowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7A1F3E165C5BBC001C3CBE /* SlideshowViewController.m */; };
+		7C7A1F41165C5BBD001C3CBE /* SlideshowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C7A1F3F165C5BBD001C3CBE /* SlideshowViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,8 +155,11 @@
 		7C49CAEC16477E3E00035C30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		7C49CAEE16477E3E00035C30 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		7C49CAEF16477E3E00035C30 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		7C49CAF116477E3E00035C30 /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
-		7C49CAF216477E3E00035C30 /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
+		7C49CAF116477E3E00035C30 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		7C49CAF216477E3E00035C30 /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		7C7A1F3D165C5BBC001C3CBE /* SlideshowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideshowViewController.h; sourceTree = "<group>"; };
+		7C7A1F3E165C5BBC001C3CBE /* SlideshowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideshowViewController.m; sourceTree = "<group>"; };
+		7C7A1F3F165C5BBD001C3CBE /* SlideshowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlideshowViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,10 +248,13 @@
 			children = (
 				7C49CAEE16477E3E00035C30 /* MainViewController.h */,
 				7C49CAEF16477E3E00035C30 /* MainViewController.m */,
-				7C49CAF116477E3E00035C30 /* FlipsideViewController.h */,
-				7C49CAF216477E3E00035C30 /* FlipsideViewController.m */,
+				7C49CAF116477E3E00035C30 /* SettingsViewController.h */,
+				7C49CAF216477E3E00035C30 /* SettingsViewController.m */,
 				6DDCF71D164FDD0000A2C7AE /* LoginViewController.h */,
 				6DDCF71E164FDD0000A2C7AE /* LoginViewController.m */,
+				7C7A1F3D165C5BBC001C3CBE /* SlideshowViewController.h */,
+				7C7A1F3E165C5BBC001C3CBE /* SlideshowViewController.m */,
+				7C7A1F3F165C5BBD001C3CBE /* SlideshowViewController.xib */,
 				7C1EF5A6165491C0004408D9 /* PhotoViewController.h */,
 				7C1EF5A7165491C0004408D9 /* PhotoViewController.m */,
 				7C1EF5A8165491C0004408D9 /* PhotoViewController.xib */,
@@ -461,6 +469,7 @@
 				6D1E71AB1650842400663E78 /* loginBackgroundIPadPortrait.jpg in Resources */,
 				6D1E71AC1650842400663E78 /* loginBackgroundIPadPortrait@2x.jpg in Resources */,
 				7C1EF5AA165491C0004408D9 /* PhotoViewController.xib in Resources */,
+				7C7A1F41165C5BBD001C3CBE /* SlideshowViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,7 +483,7 @@
 				7C49CADD16477E3D00035C30 /* main.m in Sources */,
 				7C49CAE116477E3D00035C30 /* AppDelegate.m in Sources */,
 				7C49CAF016477E3E00035C30 /* MainViewController.m in Sources */,
-				7C49CAF316477E3E00035C30 /* FlipsideViewController.m in Sources */,
+				7C49CAF316477E3E00035C30 /* SettingsViewController.m in Sources */,
 				7C1F75081648C9BF0050CCE9 /* ServiceManager.m in Sources */,
 				6DDCF71F164FDD0000A2C7AE /* LoginViewController.m in Sources */,
 				7C1EF56F16537D5F004408D9 /* FBEventSlideshow.xcdatamodeld in Sources */,
@@ -489,6 +498,7 @@
 				7C1EF59C16548E7D004408D9 /* Event.m in Sources */,
 				7C1EF5A216548EB4004408D9 /* User.m in Sources */,
 				7C1EF5A9165491C0004408D9 /* PhotoViewController.m in Sources */,
+				7C7A1F40165C5BBD001C3CBE /* SlideshowViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

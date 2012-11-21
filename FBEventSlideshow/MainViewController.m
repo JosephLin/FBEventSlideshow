@@ -7,10 +7,11 @@
 //
 
 #import "MainViewController.h"
-#import "FlipsideViewController.h"
+#import "SettingsViewController.h"
 #import "ServiceManager.h"
 #import "UIImageView+WebCache.h"
-#import "PhotoViewController.h"
+#import "SlideshowViewController.h"
+#import "AppDelegate.h"
 
 #define kSlideshowDuration      5.0
 #define kFadeInFadeOutDuration  0.5
@@ -19,16 +20,12 @@
 
 @interface MainViewController () <UIPopoverControllerDelegate>
 @property (nonatomic, strong) UIPopoverController *settingsPopoverController;
+@property (nonatomic, strong) NSMutableArray *slideshowViewControllers;
 @property (nonatomic, strong) UIScreen *extScreen;
 @property (nonatomic, strong) UIWindow *extWindow;
-@property (nonatomic, strong) UIImageView *extImageView;
 @property (nonatomic, strong) NSTimer *slideshowTimer;
 @property (nonatomic, strong) NSArray *photos;
 @property (nonatomic) NSUInteger currentIndex;
-
-@property (nonatomic, strong) PhotoViewController *currentPhotoViewController;
-@property (nonatomic, strong) PhotoViewController *nextPhotoViewController;
-
 @end
 
 
@@ -39,12 +36,22 @@
 {
     [super viewDidLoad];
     
+
+    
+    // Slideshow view controller
+    SlideshowViewController *controller = [SlideshowViewController new];
+    controller.view.frame = self.view.bounds;
+    [self.view addSubview:controller.view];
+    self.slideshowViewControllers = [NSMutableArray arrayWithObject:controller];
+    
+    
+    
+    // Login
     BOOL isLoggedIn = [[ServiceManager sharedManager] facebookLoginWithUI:NO completion:NULL];
     if (!isLoggedIn)
     {
         [self showLogin];
     }
-    
     
     [[NSNotificationCenter defaultCenter] addObserverForName:FBSessionDidLogoutNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         
@@ -54,6 +61,7 @@
     
     
     
+    // External screen
     // No notifications are sent for screens that are present when the app is launched.
     [self screenDidChange:nil];
 	
@@ -125,28 +133,10 @@
     {
         Photo *photo = self.photos[self.currentIndex];
         
-        self.nextPhotoViewController = [[PhotoViewController alloc] init];
-        self.nextPhotoViewController.photo = photo;
-        self.nextPhotoViewController.animationDuration = kSlideshowDuration;
-        self.nextPhotoViewController.view.frame = self.view.frame;
-        self.nextPhotoViewController.view.alpha = 0.0;
-        [self.view addSubview:self.nextPhotoViewController.view];
-
-        [self.nextPhotoViewController displayPhotoWithCompletion:^(BOOL success) {
-           
-            [self.nextPhotoViewController animatePhotoDisplay];
-            
-            [UIView animateWithDuration:kFadeInFadeOutDuration animations:^{
-                self.nextPhotoViewController.view.alpha = 1.0;
-                self.currentPhotoViewController.view.alpha = 0.0;
-            } completion:^(BOOL finished) {
-                [self.currentPhotoViewController.view removeFromSuperview];
-                self.currentPhotoViewController = self.nextPhotoViewController;
-                self.nextPhotoViewController = nil;
-            }];
-        }];
-        
-//        [self.extImageView setImageWithURL:URL placeholderImage:self.imageView.image];
+        for (SlideshowViewController *controller in self.slideshowViewControllers)
+        {
+            [controller displayPhoto:photo];
+        }
     }
     
     self.currentIndex++;
@@ -179,54 +169,33 @@
 
 - (void)screenDidChange:(NSNotification *)notification
 {
-    // 1. Use the screens class method of the UIScreen class to determine if an external display is available.
 	NSArray *screens = [UIScreen screens];
-
-    // Log the current screens and display modes
-    NSUInteger screenCount = [screens count];
-    NSLog(@"Device has %d screen(s).", screenCount);
-    
-	NSUInteger count = 0;
-	for (UIScreen *screen in screens)
-    {
-		NSArray *displayModes = screen.availableModes;
-		NSLog(@"Screen %d", count);
-
-		for (UIScreenMode *mode in displayModes)
-        {
-			NSLog(@"Screen mode: %@", mode);
-		}
-		
-		count++;
-	}
+    NSLog(@"Found screens: %@", screens);
 	
 	
-	if (screenCount > 1)
+	if ([screens count] > 1)
     {
-		// 2.
 		// Select first external screen
 		self.extScreen = screens[1];
-        
         self.extScreen.currentMode = [self.extScreen.availableModes lastObject];
 		
-        if (self.extWindow == nil || !CGRectEqualToRect(self.extWindow.bounds, self.extScreen.bounds))
+        if (!self.extWindow)
         {
-            // Size of window has actually changed
-            
-            // 4.
             self.extWindow = [[UIWindow alloc] initWithFrame:self.extScreen.bounds];
-            
-            // 5.
             self.extWindow.screen = self.extScreen;
             
-            self.extImageView = [[UIImageView alloc] initWithFrame:self.extWindow.frame];
-            self.extImageView.contentMode = UIViewContentModeScaleAspectFit;
-            [self.extWindow addSubview:self.extImageView];
+            SlideshowViewController *controller = [SlideshowViewController new];
+            controller.view.frame = self.extWindow.bounds;
+            controller.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+            [self.slideshowViewControllers addObject:controller];
+            self.extWindow.rootViewController = controller;
             
-            // 6.
-            
-            // 7.
             [self.extWindow makeKeyAndVisible];
+        }
+        
+        if (!CGRectEqualToRect(self.extWindow.bounds, self.extScreen.bounds))
+        {
+            self.extWindow.bounds = self.extScreen.bounds;
         }
 	}
 	else

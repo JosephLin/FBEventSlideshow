@@ -193,13 +193,11 @@
             [self.extWindow makeKeyAndVisible];
         }
         
-        if (!CGRectEqualToRect(self.extWindow.bounds, self.extScreen.bounds))
-        {
-            self.extWindow.bounds = self.extScreen.bounds;
-        }
+        self.extWindow.frame = self.extScreen.bounds;
 	}
 	else
     {
+        [self.slideshowViewControllers removeObject:self.extWindow.rootViewController];
 		self.extScreen = nil;
         self.extWindow = nil;
 	}

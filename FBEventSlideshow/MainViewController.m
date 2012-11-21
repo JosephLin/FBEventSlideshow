@@ -41,7 +41,7 @@
     // Slideshow view controller
     SlideshowViewController *controller = [SlideshowViewController new];
     controller.view.frame = self.view.bounds;
-    [self.view addSubview:controller.view];
+    [self.view insertSubview:controller.view atIndex:0];
     self.slideshowViewControllers = [NSMutableArray arrayWithObject:controller];
     
     
@@ -83,7 +83,6 @@
     if ([ServiceManager sharedManager].event)
     {
         [self loadEventPhotos];
-        [self scheduleSlideshowTimer];
     }
 }
 
@@ -107,6 +106,7 @@
 {
     if (!self.slideshowTimer)
     {
+        [self displayNextPhoto];
         self.slideshowTimer = [NSTimer scheduledTimerWithTimeInterval:kSlideshowDuration target:self selector:@selector(displayNextPhoto) userInfo:nil repeats:YES];
     }
 }
@@ -117,6 +117,7 @@
         if (success)
         {
             self.photos = photos;
+            [self scheduleSlideshowTimer];
             
             int64_t delayInSeconds = kFeedRefreshInterval;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
@@ -152,7 +153,6 @@
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
     [self loadEventPhotos];    
-    [self scheduleSlideshowTimer];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

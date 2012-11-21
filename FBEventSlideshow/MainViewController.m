@@ -40,6 +40,7 @@
     
     // Slideshow view controller
     SlideshowViewController *controller = [SlideshowViewController new];
+    controller.fadeInFadeOutDuration = kFadeInFadeOutDuration;
     controller.view.frame = self.view.bounds;
     [self.view insertSubview:controller.view atIndex:0];
     self.slideshowViewControllers = [NSMutableArray arrayWithObject:controller];
@@ -185,6 +186,7 @@
             self.extWindow.screen = self.extScreen;
             
             SlideshowViewController *controller = [SlideshowViewController new];
+            controller.fadeInFadeOutDuration = kFadeInFadeOutDuration;
             controller.view.frame = self.extWindow.bounds;
             controller.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
             [self.slideshowViewControllers addObject:controller];

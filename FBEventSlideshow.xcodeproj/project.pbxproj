@@ -54,6 +54,10 @@
 		7C7A1F40165C5BBD001C3CBE /* SlideshowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7A1F3E165C5BBC001C3CBE /* SlideshowViewController.m */; };
 		7C7A1F41165C5BBD001C3CBE /* SlideshowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C7A1F3F165C5BBD001C3CBE /* SlideshowViewController.xib */; };
 		7C7A1F43165C689E001C3CBE /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C7A1F42165C689E001C3CBE /* CommentCell.xib */; };
+		7C7A1F45165C7E38001C3CBE /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C7A1F44165C7E38001C3CBE /* icon@2x.png */; };
+		7C7A1F47165C7E57001C3CBE /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C7A1F46165C7E56001C3CBE /* icon.png */; };
+		7C7A1F4A165C7EF3001C3CBE /* loginBackgroundIPhonePortrait.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C7A1F48165C7EF3001C3CBE /* loginBackgroundIPhonePortrait.jpg */; };
+		7C7A1F4B165C7EF3001C3CBE /* loginBackgroundIPhonePortrait@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C7A1F49165C7EF3001C3CBE /* loginBackgroundIPhonePortrait@2x.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +166,10 @@
 		7C7A1F3E165C5BBC001C3CBE /* SlideshowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideshowViewController.m; sourceTree = "<group>"; };
 		7C7A1F3F165C5BBD001C3CBE /* SlideshowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlideshowViewController.xib; sourceTree = "<group>"; };
 		7C7A1F42165C689E001C3CBE /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
+		7C7A1F44165C7E38001C3CBE /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../../icon@2x.png"; sourceTree = "<group>"; };
+		7C7A1F46165C7E56001C3CBE /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../icon.png; sourceTree = "<group>"; };
+		7C7A1F48165C7EF3001C3CBE /* loginBackgroundIPhonePortrait.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginBackgroundIPhonePortrait.jpg; sourceTree = "<group>"; };
+		7C7A1F49165C7EF3001C3CBE /* loginBackgroundIPhonePortrait@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "loginBackgroundIPhonePortrait@2x.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +197,8 @@
 		6D1E719C1650842400663E78 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7C7A1F46165C7E56001C3CBE /* icon.png */,
+				7C7A1F44165C7E38001C3CBE /* icon@2x.png */,
 				6D1E719D1650842400663E78 /* login-button-small-pressed.png */,
 				6D1E719E1650842400663E78 /* login-button-small-pressed@2x.png */,
 				6D1E719F1650842400663E78 /* login-button-small.png */,
@@ -197,6 +207,8 @@
 				6D1E71A21650842400663E78 /* loginBackgroundIPadLandscape@2x.jpg */,
 				6D1E71A31650842400663E78 /* loginBackgroundIPadPortrait.jpg */,
 				6D1E71A41650842400663E78 /* loginBackgroundIPadPortrait@2x.jpg */,
+				7C7A1F48165C7EF3001C3CBE /* loginBackgroundIPhonePortrait.jpg */,
+				7C7A1F49165C7EF3001C3CBE /* loginBackgroundIPhonePortrait@2x.jpg */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -474,6 +486,10 @@
 				7C1EF5AA165491C0004408D9 /* PhotoViewController.xib in Resources */,
 				7C7A1F41165C5BBD001C3CBE /* SlideshowViewController.xib in Resources */,
 				7C7A1F43165C689E001C3CBE /* CommentCell.xib in Resources */,
+				7C7A1F45165C7E38001C3CBE /* icon@2x.png in Resources */,
+				7C7A1F47165C7E57001C3CBE /* icon.png in Resources */,
+				7C7A1F4A165C7EF3001C3CBE /* loginBackgroundIPhonePortrait.jpg in Resources */,
+				7C7A1F4B165C7EF3001C3CBE /* loginBackgroundIPhonePortrait@2x.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

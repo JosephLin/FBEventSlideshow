@@ -53,6 +53,7 @@
 		7C49CAF316477E3E00035C30 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C49CAF216477E3E00035C30 /* SettingsViewController.m */; };
 		7C7A1F40165C5BBD001C3CBE /* SlideshowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7A1F3E165C5BBC001C3CBE /* SlideshowViewController.m */; };
 		7C7A1F41165C5BBD001C3CBE /* SlideshowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C7A1F3F165C5BBD001C3CBE /* SlideshowViewController.xib */; };
+		7C7A1F43165C689E001C3CBE /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C7A1F42165C689E001C3CBE /* CommentCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +161,7 @@
 		7C7A1F3D165C5BBC001C3CBE /* SlideshowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideshowViewController.h; sourceTree = "<group>"; };
 		7C7A1F3E165C5BBC001C3CBE /* SlideshowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideshowViewController.m; sourceTree = "<group>"; };
 		7C7A1F3F165C5BBD001C3CBE /* SlideshowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlideshowViewController.xib; sourceTree = "<group>"; };
+		7C7A1F42165C689E001C3CBE /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +260,7 @@
 				7C1EF5A6165491C0004408D9 /* PhotoViewController.h */,
 				7C1EF5A7165491C0004408D9 /* PhotoViewController.m */,
 				7C1EF5A8165491C0004408D9 /* PhotoViewController.xib */,
+				7C7A1F42165C689E001C3CBE /* CommentCell.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				6D1E71AC1650842400663E78 /* loginBackgroundIPadPortrait@2x.jpg in Resources */,
 				7C1EF5AA165491C0004408D9 /* PhotoViewController.xib in Resources */,
 				7C7A1F41165C5BBD001C3CBE /* SlideshowViewController.xib in Resources */,
+				7C7A1F43165C689E001C3CBE /* CommentCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

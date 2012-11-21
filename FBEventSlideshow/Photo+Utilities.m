@@ -34,4 +34,11 @@
 	return photo;
 }
 
+- (NSArray *)orderedComments
+{
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"createdTime" ascending:NO];
+    NSArray *orderedComments = [self.comments sortedArrayUsingDescriptors:@[sortDescriptor]];
+    return orderedComments;
+}
+
 @end

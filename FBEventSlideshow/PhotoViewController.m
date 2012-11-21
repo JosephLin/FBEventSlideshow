@@ -8,11 +8,17 @@
 
 #import "PhotoViewController.h"
 #import "UIImageView+WebCache.h"
+#import "Comment+Utilities.h"
+
+#define kCellHeight 60.0;
 
 
 @interface PhotoViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) IBOutlet UIImageView *imageView;
+@property (nonatomic, strong) IBOutlet UIView *headerView;
+@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSArray *orderedComments;
 @end
 
 
@@ -24,6 +30,8 @@
     if (self.animationDuration == 0) {
         self.animationDuration = 5.0;
     }
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"CommentCell" bundle:nil] forCellReuseIdentifier:@"CommentCell"];
 }
 
 - (void)displayPhotoWithCompletion:(void(^)(BOOL success))completion
@@ -44,15 +52,23 @@
     }];
     
     
+    self.orderedComments = [self.photo orderedComments];
+    NSUInteger rowCount = MIN([self.orderedComments count], 3);
+    CGFloat height = rowCount * kCellHeight;
+    
     if ([self.photo.name length])
     {
         self.titleLabel.text = self.photo.name;
-        self.titleLabel.hidden = NO;
+        self.tableView.tableHeaderView = self.headerView;
+        height += self.headerView.bounds.size.height;
     }
     else
     {
-        self.titleLabel.hidden = YES;
+        self.tableView.tableHeaderView = nil;
     }
+    
+    self.tableView.frame = CGRectMake(0, self.view.bounds.size.height - height, self.view.bounds.size.width, height);
+    [self.tableView reloadData];
 }
 
 - (void)animatePhotoDisplay
@@ -83,5 +99,23 @@
     }];
 }
 
+
+#pragma mark - Table View
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.orderedComments count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
+    
+    Comment *comment = self.orderedComments[indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@:", comment.from.name];
+    cell.detailTextLabel.text = comment.message;
+
+    return cell;
+}
 
 @end

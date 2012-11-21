@@ -14,4 +14,6 @@
 
 @interface Photo (Utilities)
 
+- (NSArray *)orderedComments;
+
 @end

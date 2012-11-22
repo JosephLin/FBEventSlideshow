@@ -15,6 +15,10 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
 @property (strong, nonatomic) IBOutlet UITextField *idTextField;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *photoDurationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *updateIntervalLabel;
+@property (strong, nonatomic) IBOutlet UIStepper *photoDurationStepper;
+@property (strong, nonatomic) IBOutlet UIStepper *updateIntervalStepper;
 @end
 
 

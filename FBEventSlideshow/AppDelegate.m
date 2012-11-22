@@ -28,6 +28,13 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     [FBSession.activeSession handleDidBecomeActive];
+    
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
+}
+
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+    [UIApplication sharedApplication].idleTimerDisabled = NO;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

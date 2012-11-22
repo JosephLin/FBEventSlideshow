@@ -8,6 +8,7 @@
 
 #import "SettingsViewController.h"
 #import "ServiceManager.h"
+#import "NSUserDefaults+Helper.h"
 
 
 
@@ -36,6 +37,14 @@
     [super viewDidLoad];
     self.idTextField.text = [ServiceManager sharedManager].event.id;
     self.nameLabel.text = [ServiceManager sharedManager].event.name;
+    
+    NSTimeInterval photoDuration = [NSUserDefaults standardUserDefaults].photoDuration;
+    self.photoDurationLabel.text = [NSString stringWithFormat:@"%1.0f sec.", photoDuration];
+    self.photoDurationStepper.value = photoDuration;
+    
+    NSTimeInterval updateInterval = [NSUserDefaults standardUserDefaults].updateInterval;
+    self.updateIntervalLabel.text = [NSString stringWithFormat:@"Every %1.0f sec.", updateInterval];
+    self.updateIntervalStepper.value = updateInterval;
 }
 
 
@@ -57,6 +66,32 @@
             }
         }];
     }
+}
+
+- (IBAction)stepperValueChanged:(UIStepper *)sender
+{
+    if (sender == self.photoDurationStepper)
+    {
+        self.photoDurationLabel.text = [NSString stringWithFormat:@"%1.0f sec.", sender.value];
+    }
+    else if (sender == self.updateIntervalStepper)
+    {
+        self.updateIntervalLabel.text = [NSString stringWithFormat:@"Every %1.0f sec.", sender.value];
+    }
+}
+
+- (IBAction)stepperTouchUp:(UIStepper *)sender
+{
+    if (sender == self.photoDurationStepper)
+    {
+        [NSUserDefaults standardUserDefaults].photoDuration = sender.value;
+    }
+    else if (sender == self.updateIntervalStepper)
+    {
+        [NSUserDefaults standardUserDefaults].updateInterval = sender.value;
+    }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (IBAction)doneButtonTapped:(id)sender

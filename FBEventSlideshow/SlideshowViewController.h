@@ -13,7 +13,6 @@
 @interface SlideshowViewController : UIViewController
 
 @property (nonatomic) NSTimeInterval fadeInFadeOutDuration;
-@property (nonatomic) NSTimeInterval animationDuration;
 
 - (void)displayPhoto:(Photo*)photo;
 

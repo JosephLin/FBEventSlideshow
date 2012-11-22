@@ -12,10 +12,9 @@
 #import "UIImageView+WebCache.h"
 #import "SlideshowViewController.h"
 #import "AppDelegate.h"
+#import "NSUserDefaults+Helper.h"
 
-#define kSlideshowDuration      5.0
 #define kFadeInFadeOutDuration  0.5
-#define kFeedRefreshInterval    20.0
 
 
 @interface MainViewController () <UIPopoverControllerDelegate>
@@ -24,6 +23,7 @@
 @property (nonatomic, strong) UIScreen *extScreen;
 @property (nonatomic, strong) UIWindow *extWindow;
 @property (nonatomic, strong) NSTimer *slideshowTimer;
+@property (nonatomic, strong) NSTimer *updateTimer;
 @property (nonatomic, strong) NSArray *photos;
 @property (nonatomic) NSUInteger currentIndex;
 @end
@@ -83,14 +83,13 @@
     [super viewDidAppear:animated];
     if ([ServiceManager sharedManager].event)
     {
-        [self loadEventPhotos];
+        [self scheduleUpdateTimer];
     }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self.slideshowTimer invalidate];
-    self.slideshowTimer = nil;
+    [self invalidateAllTimer];
     
     [super viewWillDisappear:animated];
 }
@@ -108,8 +107,27 @@
     if (!self.slideshowTimer)
     {
         [self displayNextPhoto];
-        self.slideshowTimer = [NSTimer scheduledTimerWithTimeInterval:kSlideshowDuration target:self selector:@selector(displayNextPhoto) userInfo:nil repeats:YES];
+        NSTimeInterval photoDuration = [NSUserDefaults standardUserDefaults].photoDuration;
+        self.slideshowTimer = [NSTimer scheduledTimerWithTimeInterval:photoDuration target:self selector:@selector(displayNextPhoto) userInfo:nil repeats:YES];
     }
+}
+
+- (void)scheduleUpdateTimer
+{
+    if (!self.updateTimer)
+    {
+        [self loadEventPhotos];
+        NSTimeInterval updateInterval = [NSUserDefaults standardUserDefaults].updateInterval;
+        self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:updateInterval target:self selector:@selector(loadEventPhotos) userInfo:nil repeats:YES];
+    }
+}
+
+- (void)invalidateAllTimer
+{
+    [self.slideshowTimer invalidate];
+    self.slideshowTimer = nil;
+    [self.updateTimer invalidate];
+    self.updateTimer = nil;
 }
 
 - (void)loadEventPhotos
@@ -119,12 +137,6 @@
         {
             self.photos = photos;
             [self scheduleSlideshowTimer];
-            
-            int64_t delayInSeconds = kFeedRefreshInterval;
-            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                [self loadEventPhotos];
-            });
         }
     }];
 }
@@ -153,13 +165,15 @@
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
-    [self loadEventPhotos];    
+    [self scheduleUpdateTimer];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue isKindOfClass:[UIStoryboardPopoverSegue class]])
     {
+        [self invalidateAllTimer];
+        
         ((UIStoryboardPopoverSegue *)segue).popoverController.delegate = self;
         self.settingsPopoverController = ((UIStoryboardPopoverSegue *)segue).popoverController;
     }

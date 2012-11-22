@@ -58,6 +58,7 @@
 		7C7A1F47165C7E57001C3CBE /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C7A1F46165C7E56001C3CBE /* icon.png */; };
 		7C7A1F4A165C7EF3001C3CBE /* loginBackgroundIPhonePortrait.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C7A1F48165C7EF3001C3CBE /* loginBackgroundIPhonePortrait.jpg */; };
 		7C7A1F4B165C7EF3001C3CBE /* loginBackgroundIPhonePortrait@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C7A1F49165C7EF3001C3CBE /* loginBackgroundIPhonePortrait@2x.jpg */; };
+		7C9ED131165DD47200B1E9A9 /* NSUserDefaults+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9ED130165DD47200B1E9A9 /* NSUserDefaults+Helper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +171,8 @@
 		7C7A1F46165C7E56001C3CBE /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../icon.png; sourceTree = "<group>"; };
 		7C7A1F48165C7EF3001C3CBE /* loginBackgroundIPhonePortrait.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginBackgroundIPhonePortrait.jpg; sourceTree = "<group>"; };
 		7C7A1F49165C7EF3001C3CBE /* loginBackgroundIPhonePortrait@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "loginBackgroundIPhonePortrait@2x.jpg"; sourceTree = "<group>"; };
+		7C9ED12F165DD47200B1E9A9 /* NSUserDefaults+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Helper.h"; sourceTree = "<group>"; };
+		7C9ED130165DD47200B1E9A9 /* NSUserDefaults+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Helper.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +247,8 @@
 				7C1EF56C16537D4F004408D9 /* NSManagedObject+Utilities.m */,
 				7C1EF5881654862C004408D9 /* NSDate+Utilities.h */,
 				7C1EF5891654862D004408D9 /* NSDate+Utilities.m */,
+				7C9ED12F165DD47200B1E9A9 /* NSUserDefaults+Helper.h */,
+				7C9ED130165DD47200B1E9A9 /* NSUserDefaults+Helper.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -519,6 +524,7 @@
 				7C1EF5A216548EB4004408D9 /* User.m in Sources */,
 				7C1EF5A9165491C0004408D9 /* PhotoViewController.m in Sources */,
 				7C7A1F40165C5BBD001C3CBE /* SlideshowViewController.m in Sources */,
+				7C9ED131165DD47200B1E9A9 /* NSUserDefaults+Helper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

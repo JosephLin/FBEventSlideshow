@@ -30,7 +30,6 @@
 {
     self.nextPhotoViewController = [[PhotoViewController alloc] init];
     self.nextPhotoViewController.photo = photo;
-    self.nextPhotoViewController.animationDuration = self.animationDuration;
     self.nextPhotoViewController.view.frame = self.view.frame;
     self.nextPhotoViewController.view.alpha = 0.0;
     [self.view addSubview:self.nextPhotoViewController.view];

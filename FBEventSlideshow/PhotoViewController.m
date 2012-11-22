@@ -9,6 +9,7 @@
 #import "PhotoViewController.h"
 #import "UIImageView+WebCache.h"
 #import "Comment+Utilities.h"
+#import "NSUserDefaults+Helper.h"
 
 #define kCellHeight 60.0;
 
@@ -27,9 +28,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if (self.animationDuration == 0) {
-        self.animationDuration = 5.0;
-    }
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CommentCell" bundle:nil] forCellReuseIdentifier:@"CommentCell"];
 }
@@ -94,7 +92,8 @@
     CGRect endRect = CGRectMake(viewWidth - photoWidth, viewHeight - photoHeight, photoWidth, photoHeight);
 
     self.imageView.frame = startRect;
-    [UIView animateWithDuration:self.animationDuration animations:^{
+    NSTimeInterval photoDuration = [NSUserDefaults standardUserDefaults].photoDuration;
+    [UIView animateWithDuration:photoDuration animations:^{
         self.imageView.frame = endRect;
     }];
 }

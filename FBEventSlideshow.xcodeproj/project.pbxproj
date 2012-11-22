@@ -59,6 +59,8 @@
 		7C7A1F4A165C7EF3001C3CBE /* loginBackgroundIPhonePortrait.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C7A1F48165C7EF3001C3CBE /* loginBackgroundIPhonePortrait.jpg */; };
 		7C7A1F4B165C7EF3001C3CBE /* loginBackgroundIPhonePortrait@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C7A1F49165C7EF3001C3CBE /* loginBackgroundIPhonePortrait@2x.jpg */; };
 		7C9ED131165DD47200B1E9A9 /* NSUserDefaults+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9ED130165DD47200B1E9A9 /* NSUserDefaults+Helper.m */; };
+		7CAABDB7165E658D00AF639B /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CAABDB6165E658D00AF639B /* MediaPlayer.framework */; };
+		7CAABDBA165E73EB00AF639B /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAABDB9165E73EB00AF639B /* VideoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +175,9 @@
 		7C7A1F49165C7EF3001C3CBE /* loginBackgroundIPhonePortrait@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "loginBackgroundIPhonePortrait@2x.jpg"; sourceTree = "<group>"; };
 		7C9ED12F165DD47200B1E9A9 /* NSUserDefaults+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Helper.h"; sourceTree = "<group>"; };
 		7C9ED130165DD47200B1E9A9 /* NSUserDefaults+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Helper.m"; sourceTree = "<group>"; };
+		7CAABDB6165E658D00AF639B /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		7CAABDB8165E73EB00AF639B /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		7CAABDB9165E73EB00AF639B /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +185,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CAABDB7165E658D00AF639B /* MediaPlayer.framework in Frameworks */,
 				7C1EF57016537D6C004408D9 /* CoreData.framework in Frameworks */,
 				7C379C7F164F9C4000FAABB0 /* ImageIO.framework in Frameworks */,
 				7C379C7D164F989A00FAABB0 /* libSDWebImage.a in Frameworks */,
@@ -278,6 +284,8 @@
 				7C1EF5A7165491C0004408D9 /* PhotoViewController.m */,
 				7C1EF5A8165491C0004408D9 /* PhotoViewController.xib */,
 				7C7A1F42165C689E001C3CBE /* CommentCell.xib */,
+				7CAABDB8165E73EB00AF639B /* VideoViewController.h */,
+				7CAABDB9165E73EB00AF639B /* VideoViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -313,6 +321,7 @@
 		7C49CAC116477E3D00035C30 = {
 			isa = PBXGroup;
 			children = (
+				7CAABDB6165E658D00AF639B /* MediaPlayer.framework */,
 				7C49CAD616477E3D00035C30 /* FBEventSlideshow */,
 				7C1F750A1648CA9F0050CCE9 /* Externals */,
 				7C49CACF16477E3D00035C30 /* Frameworks */,
@@ -525,6 +534,7 @@
 				7C1EF5A9165491C0004408D9 /* PhotoViewController.m in Sources */,
 				7C7A1F40165C5BBD001C3CBE /* SlideshowViewController.m in Sources */,
 				7C9ED131165DD47200B1E9A9 /* NSUserDefaults+Helper.m in Sources */,
+				7CAABDBA165E73EB00AF639B /* VideoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

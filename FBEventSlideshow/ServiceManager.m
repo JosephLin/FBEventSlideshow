@@ -88,6 +88,11 @@ NSString *const FBSessionDidLogoutNotification = @"FBSessionDidLogoutNotificatio
             NSLog(@"Result: %@", result);
             NSArray *photos = [Photo objectsWithArray:result[@"data"] inContext:[Photo mainMOC]];
             self.event.photos = [NSSet setWithArray:photos];
+            
+            // Newest first
+            NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"createdTime" ascending:NO];
+            photos = [photos sortedArrayUsingDescriptors:@[sortDescriptor]];
+            
             completion(photos, YES, nil);
         }
         else

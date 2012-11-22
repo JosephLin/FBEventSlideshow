@@ -135,6 +135,11 @@
     [[ServiceManager sharedManager] loadEventPhotosWithCompletion:^(NSArray *photos, BOOL success, NSError *error) {
         if (success)
         {
+            if ([photos count] != [self.photos count])
+            {
+                self.currentIndex = 0;
+            }
+
             self.photos = photos;
             [self scheduleSlideshowTimer];
         }

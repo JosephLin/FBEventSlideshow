@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VideoViewController : UITableViewController
 
+@interface VideoListViewController : UIViewController
+@property (nonatomic, strong) UIWindow *extWindow;
 @end

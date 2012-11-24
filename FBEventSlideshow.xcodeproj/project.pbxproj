@@ -36,6 +36,7 @@
 		7C1F754B1648D2380050CCE9 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1F754A1648D2380050CCE9 /* Accounts.framework */; };
 		7C1F754D1648D2730050CCE9 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1F754C1648D2730050CCE9 /* AdSupport.framework */; };
 		7C1F75511648D2E10050CCE9 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1F75501648D2E10050CCE9 /* libsqlite3.0.dylib */; };
+		7C2E6F6F16606DA1006860E6 /* ExternalDisplayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E6F6E16606DA1006860E6 /* ExternalDisplayManager.m */; };
 		7C379C7D164F989A00FAABB0 /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C379C7A164F984E00FAABB0 /* libSDWebImage.a */; };
 		7C379C7F164F9C4000FAABB0 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C379C7E164F9C4000FAABB0 /* ImageIO.framework */; };
 		7C49CAD116477E3D00035C30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C49CAD016477E3D00035C30 /* UIKit.framework */; };
@@ -60,7 +61,7 @@
 		7C7A1F4B165C7EF3001C3CBE /* loginBackgroundIPhonePortrait@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C7A1F49165C7EF3001C3CBE /* loginBackgroundIPhonePortrait@2x.jpg */; };
 		7C9ED131165DD47200B1E9A9 /* NSUserDefaults+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9ED130165DD47200B1E9A9 /* NSUserDefaults+Helper.m */; };
 		7CAABDB7165E658D00AF639B /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CAABDB6165E658D00AF639B /* MediaPlayer.framework */; };
-		7CAABDBA165E73EB00AF639B /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAABDB9165E73EB00AF639B /* VideoViewController.m */; };
+		7CAABDBA165E73EB00AF639B /* VideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAABDB9165E73EB00AF639B /* VideoListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,8 @@
 		7C1F754C1648D2730050CCE9 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		7C1F754E1648D28A0050CCE9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		7C1F75501648D2E10050CCE9 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		7C2E6F6D16606DA1006860E6 /* ExternalDisplayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExternalDisplayManager.h; sourceTree = "<group>"; };
+		7C2E6F6E16606DA1006860E6 /* ExternalDisplayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExternalDisplayManager.m; sourceTree = "<group>"; };
 		7C379C6D164F984E00FAABB0 /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
 		7C379C7E164F9C4000FAABB0 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		7C49CACC16477E3D00035C30 /* FBEventSlideshow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBEventSlideshow.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,8 +179,8 @@
 		7C9ED12F165DD47200B1E9A9 /* NSUserDefaults+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Helper.h"; sourceTree = "<group>"; };
 		7C9ED130165DD47200B1E9A9 /* NSUserDefaults+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Helper.m"; sourceTree = "<group>"; };
 		7CAABDB6165E658D00AF639B /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		7CAABDB8165E73EB00AF639B /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
-		7CAABDB9165E73EB00AF639B /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		7CAABDB8165E73EB00AF639B /* VideoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoListViewController.h; sourceTree = "<group>"; };
+		7CAABDB9165E73EB00AF639B /* VideoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,13 +262,15 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
-		7C1EF5A41654907E004408D9 /* API */ = {
+		7C1EF5A41654907E004408D9 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				7C1F75061648C9BF0050CCE9 /* ServiceManager.h */,
 				7C1F75071648C9BF0050CCE9 /* ServiceManager.m */,
+				7C2E6F6D16606DA1006860E6 /* ExternalDisplayManager.h */,
+				7C2E6F6E16606DA1006860E6 /* ExternalDisplayManager.m */,
 			);
-			name = API;
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		7C1EF5A516549095004408D9 /* View Controllers */ = {
@@ -284,8 +289,8 @@
 				7C1EF5A7165491C0004408D9 /* PhotoViewController.m */,
 				7C1EF5A8165491C0004408D9 /* PhotoViewController.xib */,
 				7C7A1F42165C689E001C3CBE /* CommentCell.xib */,
-				7CAABDB8165E73EB00AF639B /* VideoViewController.h */,
-				7CAABDB9165E73EB00AF639B /* VideoViewController.m */,
+				7CAABDB8165E73EB00AF639B /* VideoListViewController.h */,
+				7CAABDB9165E73EB00AF639B /* VideoListViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -321,7 +326,6 @@
 		7C49CAC116477E3D00035C30 = {
 			isa = PBXGroup;
 			children = (
-				7CAABDB6165E658D00AF639B /* MediaPlayer.framework */,
 				7C49CAD616477E3D00035C30 /* FBEventSlideshow */,
 				7C1F750A1648CA9F0050CCE9 /* Externals */,
 				7C49CACF16477E3D00035C30 /* Frameworks */,
@@ -340,6 +344,7 @@
 		7C49CACF16477E3D00035C30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7CAABDB6165E658D00AF639B /* MediaPlayer.framework */,
 				7C379C7E164F9C4000FAABB0 /* ImageIO.framework */,
 				7C1F75501648D2E10050CCE9 /* libsqlite3.0.dylib */,
 				7C1F754E1648D28A0050CCE9 /* CoreData.framework */,
@@ -361,7 +366,7 @@
 				7C49CADF16477E3D00035C30 /* AppDelegate.h */,
 				7C49CAE016477E3D00035C30 /* AppDelegate.m */,
 				7C1EF5A516549095004408D9 /* View Controllers */,
-				7C1EF5A41654907E004408D9 /* API */,
+				7C1EF5A41654907E004408D9 /* Utilities */,
 				7C1EF5A316549070004408D9 /* Categories */,
 				7C1EF581165381ED004408D9 /* Data Models */,
 				6D1E719C1650842400663E78 /* Images */,
@@ -534,7 +539,8 @@
 				7C1EF5A9165491C0004408D9 /* PhotoViewController.m in Sources */,
 				7C7A1F40165C5BBD001C3CBE /* SlideshowViewController.m in Sources */,
 				7C9ED131165DD47200B1E9A9 /* NSUserDefaults+Helper.m in Sources */,
-				7CAABDBA165E73EB00AF639B /* VideoViewController.m in Sources */,
+				7CAABDBA165E73EB00AF639B /* VideoListViewController.m in Sources */,
+				7C2E6F6F16606DA1006860E6 /* ExternalDisplayManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

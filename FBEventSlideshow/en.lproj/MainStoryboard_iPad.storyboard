@@ -45,6 +45,21 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5bH-vP-CIZ">
+                                <rect key="frame" x="24" y="20" width="65" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Video">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="s5v-ll-biN" kind="modal" identifier="VideoSegue" id="kz4-0n-kdc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -109,45 +124,98 @@ so we can access the event data.</string>
             </objects>
             <point key="canvasLocation" x="-636" y="-1229"/>
         </scene>
-        <!--Video View Controller-->
-        <scene sceneID="Dkw-oC-CxC">
+        <!--Video List View Controller-->
+        <scene sceneID="mTw-Ph-ee3">
             <objects>
-                <tableViewController id="QfT-U8-SPE" customClass="VideoViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gti-jx-kFX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BasicCell" textLabel="ijm-iv-gFB" style="IBUITableViewCellStyleDefault" id="DWr-ax-zQi">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ijm-iv-gFB">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                <viewController id="s5v-ll-biN" customClass="VideoListViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="StH-WV-YpW">
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="tuV-zl-u6K">
+                                <rect key="frame" x="0.0" y="44" width="768" height="916"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="VideoCell" textLabel="SFs-7Z-teh" style="IBUITableViewCellStyleDefault" id="80q-Es-TOI">
+                                        <rect key="frame" x="0.0" y="22" width="768" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="QfT-U8-SPE" id="r1L-Ji-hFz"/>
-                            <outlet property="delegate" destination="QfT-U8-SPE" id="9I5-X3-rUF"/>
-                        </connections>
-                    </tableView>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wCw-Ll-qK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SFs-7Z-teh">
+                                                    <rect key="frame" x="10" y="0.0" width="748" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="s5v-ll-biN" id="tyU-TX-fmi"/>
+                                    <outlet property="delegate" destination="s5v-ll-biN" id="uZk-E3-0o6"/>
+                                </connections>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" id="XU3-ab-7eQ">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Video" id="gCi-Rl-cNY">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="3Rj-Vs-EeS">
+                                            <connections>
+                                                <action selector="doneButtonTapped:" destination="s5v-ll-biN" id="qHT-dY-zNY"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="mBd-H5-ycN">
+                                <rect key="frame" x="0.0" y="960" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="sCU-Hq-DiH"/>
+                                    <barButtonItem systemItem="rewind" id="pKC-pn-rms">
+                                        <connections>
+                                            <action selector="rewindButtonTapped:" destination="s5v-ll-biN" id="B6I-du-tES"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="XYy-ur-p7Z"/>
+                                    <barButtonItem systemItem="play" id="CuX-cp-QEK">
+                                        <connections>
+                                            <action selector="playButtonTapped:" destination="s5v-ll-biN" id="8Xu-kj-ySw"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem enabled="NO" systemItem="pause" id="AC9-DA-TGs">
+                                        <connections>
+                                            <action selector="pauseButtonTapped:" destination="s5v-ll-biN" id="hLL-ma-N3h"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="YUo-tZ-pXu"/>
+                                    <barButtonItem systemItem="fastForward" id="8gM-cL-uFC">
+                                        <connections>
+                                            <action selector="fastForwardButtonTapped:" destination="s5v-ll-biN" id="tfn-4t-aYL"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="zaM-2g-Tc5"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="pauseButton" destination="AC9-DA-TGs" id="0bt-FT-AGa"/>
+                        <outlet property="playButton" destination="CuX-cp-QEK" id="Oy1-lZ-jaK"/>
+                        <outlet property="tableView" destination="tuV-zl-u6K" id="o1u-VJ-h1V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gE2-f5-qSk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="377" y="-979"/>
+            <point key="canvasLocation" x="560" y="-1242"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="QMc-eJ-3wb">
@@ -340,6 +408,11 @@ so we can access the event data.</string>
         <class className="SettingsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="doneButtonTapped:"/>
+                <relationship kind="action" name="logoutButtonTapped:"/>
+                <relationship kind="action" name="stepperTouchUp:" candidateClass="UIStepper"/>
+                <relationship kind="action" name="stepperValueChanged:" candidateClass="UIStepper"/>
+                <relationship kind="action" name="textFieldDidEndEditing:" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="idTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="logoutButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
@@ -349,8 +422,18 @@ so we can access the event data.</string>
                 <relationship kind="outlet" name="updateIntervalStepper" candidateClass="UIStepper"/>
             </relationships>
         </class>
-        <class className="VideoViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideoViewController.h"/>
+        <class className="VideoListViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideoListViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doneButtonTapped:"/>
+                <relationship kind="action" name="fastForwardButtonTapped:"/>
+                <relationship kind="action" name="pauseButtonTapped:"/>
+                <relationship kind="action" name="playButtonTapped:"/>
+                <relationship kind="action" name="rewindButtonTapped:"/>
+                <relationship kind="outlet" name="pauseButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="playButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

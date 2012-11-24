@@ -13,6 +13,8 @@
 #import "SlideshowViewController.h"
 #import "AppDelegate.h"
 #import "NSUserDefaults+Helper.h"
+#import "VideoListViewController.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 #define kFadeInFadeOutDuration  0.5
 
@@ -175,12 +177,17 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    [self invalidateAllTimer];
+
     if ([segue isKindOfClass:[UIStoryboardPopoverSegue class]])
     {
-        [self invalidateAllTimer];
-        
         ((UIStoryboardPopoverSegue *)segue).popoverController.delegate = self;
         self.settingsPopoverController = ((UIStoryboardPopoverSegue *)segue).popoverController;
+    }
+    
+    if ([segue.identifier isEqualToString:@"VideoSegue"])
+    {
+        ((VideoListViewController*)segue.destinationViewController).extWindow = self.extWindow;
     }
 }
 

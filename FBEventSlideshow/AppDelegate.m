@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "FacebookSDK.h"
+#import "TestFlight.h"
 
 
 
@@ -22,6 +23,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [TestFlight takeOff:@"a482c79c1218cfc1d5415d78f75e4ff8_MTU4ODg5MjAxMi0xMS0yNCAwODowNjozMS45MjkxMDk"];
+
     return YES;
 }
 							

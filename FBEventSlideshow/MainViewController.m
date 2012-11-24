@@ -19,7 +19,7 @@
 #define kFadeInFadeOutDuration  0.5
 
 
-@interface MainViewController () <UIPopoverControllerDelegate>
+@interface MainViewController () <UIPopoverControllerDelegate, VideoListViewControllerDelegate>
 @property (nonatomic, strong) UIPopoverController *settingsPopoverController;
 @property (nonatomic, strong) NSMutableArray *slideshowViewControllers;
 @property (nonatomic, strong) UIScreen *extScreen;
@@ -187,7 +187,7 @@
     
     if ([segue.identifier isEqualToString:@"VideoSegue"])
     {
-        ((VideoListViewController*)segue.destinationViewController).extWindow = self.extWindow;
+        ((VideoListViewController*)segue.destinationViewController).delegate = self;
     }
 }
 

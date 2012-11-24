@@ -9,6 +9,13 @@
 #import <UIKit/UIKit.h>
 
 
-@interface VideoListViewController : UIViewController
-@property (nonatomic, strong) UIWindow *extWindow;
+@protocol VideoListViewControllerDelegate <NSObject>
+//@optional
+@property (nonatomic, strong, readonly) UIWindow *extWindow;
 @end
+
+@interface VideoListViewController : UIViewController
+@property (nonatomic, weak) id <VideoListViewControllerDelegate> delegate;
+@end
+
+

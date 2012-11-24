@@ -75,42 +75,45 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    if (self.moviePlayerViewController)
-    {
-        if (self.extWindow) {
-            [self.extWindow.rootViewController dismissMoviePlayerViewControllerAnimated];
-        }
-        else {
-            [self dismissMoviePlayerViewControllerAnimated];
-        }
-    }
-    
+        
     MPMediaItem* item = self.mediaItems[indexPath.row];
     NSURL *URL = [item valueForProperty:MPMediaItemPropertyAssetURL];
-    self.moviePlayerViewController = [[MPMoviePlayerViewController alloc] initWithContentURL:URL];
+    MPMoviePlayerViewController *controller = [[MPMoviePlayerViewController alloc] initWithContentURL:URL];
     
     // Hack
     NSString* title = [item valueForProperty:MPMediaItemPropertyTitle];
     BOOL isMV = [title rangeOfString:@"MV"].location != NSNotFound;
-    self.moviePlayerViewController.moviePlayer.repeatMode = (isMV) ? MPMovieRepeatModeNone : MPMovieRepeatModeOne;
+    controller.moviePlayer.repeatMode = (isMV) ? MPMovieRepeatModeNone : MPMovieRepeatModeOne;
     
-    if (self.extWindow)
+    if (self.delegate.extWindow)
     {
-        self.moviePlayerViewController.moviePlayer.controlStyle = MPMovieControlStyleNone;
-        [self.extWindow.rootViewController presentMoviePlayerViewControllerAnimated:self.moviePlayerViewController];
+        controller.moviePlayer.controlStyle = MPMovieControlStyleNone;
+
+        if (self.moviePlayerViewController)
+        {
+            [self.delegate.extWindow.rootViewController dismissViewControllerAnimated:NO completion:^{
+
+                [self.delegate.extWindow.rootViewController presentViewController:controller animated:NO completion:NULL];
+            }];
+        }
+        else
+        {
+            [self.delegate.extWindow.rootViewController presentMoviePlayerViewControllerAnimated:controller];   
+        }
     }
     else
     {
-        [self presentMoviePlayerViewControllerAnimated:self.moviePlayerViewController];
+        [self presentMoviePlayerViewControllerAnimated:controller];
     }
+    
+    self.moviePlayerViewController = controller;
 }
 
 - (IBAction)doneButtonTapped:(id)sender
 {
     if (self.moviePlayerViewController){
         [self dismissMoviePlayerViewControllerAnimated];
-        [self.extWindow.rootViewController dismissMoviePlayerViewControllerAnimated];
+        [self.delegate.extWindow.rootViewController dismissMoviePlayerViewControllerAnimated];
     }
     
     [self dismissViewControllerAnimated:YES completion:NULL];
